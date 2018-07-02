@@ -1,0 +1,45 @@
+.images-conatainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .fancyimage {
+    width: calc(50% - 8px);
+    height: 190px;
+    margin-top: 15px;
+    position: relative;
+    border-radius: 2px;
+    overflow: hidden;
+    outline: none;
+
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      @include position-abs-vh-center;
+    }
+
+    &:nth-child(2n) {
+      margin-left: 16px;
+    }
+    &:nth-child(1), &:nth-child(2) {
+      margin-top: 0;
+    }
+  }
+}
+/*
+
+@media all and (max-width: 420px) {
+  .images-conatainer {
+    .fancyimage {
+      width: 100%;
+
+      &:nth-child(2) {
+        margin-top: 15px;
+      }
+    }
+    &:nth-child(2n) {
+      margin-left: 0;
+    }
+  }
+}
+*/

@@ -1,0 +1,115 @@
+.pagination-nav {
+  background-color: #f6f8fa;
+  padding: 20px;
+  border-top: 1px solid #ececec;
+
+  .pagination {
+    margin: 0 auto;
+    justify-content: center;
+
+    li {
+      display: inline-block;
+      margin: 0 5px;
+      height: 36px;
+
+      a {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 36px;
+        font: {
+          family: $base-font-family-texta-heavy;
+          size: 16px;
+        };
+        color: #ed1f24;
+        border: 1px solid #ed1f24;
+        border-radius: 3px;
+        padding: 5px;
+        line-height: 26px;
+        text-align: center;
+        background-color: transparent;
+        transition: all .5s 0s;
+        overflow: hidden;
+
+        & > span {
+          position: relative;
+          z-index: 3;
+        }
+
+        &.disabled {
+          font-size: 20px;
+          line-height: 20px;
+          border: none;
+          color: #bababa;
+        }
+        &.link-next,
+        &.link-prev {
+          font-size: 22px;
+          line-height: 28px;
+
+          .zmdi {
+            position: relative;
+            z-index: 3;
+
+            &:not(:last-child) {
+              margin-right: 1px;
+            }
+          }
+        }
+        &:before {
+          display: block;
+          content: '';
+          visibility: hidden;
+          opacity: 0;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          position: absolute;
+          z-index: 2;
+          transition: all .5s 0s;
+          @include gradient-background(#f02836, #fd654e);
+        }
+      }
+
+      &.active {
+        a {
+          border-color: transparent;
+          background-color: transparent;
+          color: #fff;
+
+          .zmdi {
+            color: #fff;
+          }
+
+          &:before {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+      &.disabled {
+        a {
+          background-color: transparent;
+          border-color: #bababa;
+          color: #bababa;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .pagination-nav {
+    .pagination {
+      li {
+        a {
+          width: 34px;
+          height: 34px;
+          font-size: 14px;
+          line-height: 23px;
+        }
+      }
+    }
+  }
+}

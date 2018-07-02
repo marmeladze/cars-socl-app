@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 main-container">
+      <%= render partial: 'sidebar' %>
+      <div class="content-container">
+        <div class="content-block settings-block">
+          <%= form_tag(privacy_settings_path, method: :post, class: 'form content-form', id: 'privacy_settings_form') do %>
+            <div class="block-body">
+              <h4>Privacy Settings</h4>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="privacy_posts">Who can see my posts</label>
+                    <%= select_tag "privacy[posts]", options_for_select(privacy_options, @privacy.posts), class: 'selectpicker' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="privacy_follow">Who can follow me</label>
+                    <%= select_tag "privacy[follow]", options_for_select(privacy_options, @privacy.follow), class: 'selectpicker' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="privacy_timeline">Who can post on my timeline</label>
+                    <%= select_tag "privacy[timeline]", options_for_select(privacy_options, @privacy.timeline), class: 'selectpicker' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="privacy_comments">Who can comment my posts</label>
+                    <%= select_tag "privacy[comments]", options_for_select(privacy_options, @privacy.comments), class: 'selectpicker' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="block-footer">
+              <%= submit_tag "Save changes", class: 'btn btn-primary btn-block' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

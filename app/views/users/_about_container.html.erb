@@ -1,0 +1,13 @@
+<div class="content-container mobile-order-1">
+  <div class="content-block article article-short description">
+    <div class="article-header">
+      <h3>About</h3>
+      <a href="#" class="btn-edit"><i class="zmdi zmdi-edit"></i></a>
+    </div>
+    <div class="article-body with-padding">
+      <%= @user.profile.try(:about) %>
+    </div>
+  </div>
+  <%= render partial: 'my_motors', locals: { motors: @user.motors } %>
+  <%= render partial: 'dream_garage', locals: { motors: @user.dream_garage.motors } %>
+</div>

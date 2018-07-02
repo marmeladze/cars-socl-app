@@ -1,0 +1,195 @@
+<%= form_tag(motor_path(@motor), method: :put, multipart: true, class: 'form content-form', id: 'edit_motor', remote: true) do %>
+  <%= render partial: 'entities/cover_pic_container', locals: { type: 'motor', current: @motor } %>
+  <div class='container error'></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="main-container">
+          <div class="content-container">
+            <div class="content-block">
+              <div class="block-header">
+                <h4>Motor Details</h4>
+              </div>
+              <div class="block-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="motorCategory">Motor category</label>
+                      <%= select_tag "motor[motor_category]", options_for_select(Motor::MOTOR_CATEGORIES, @motor.motor_category), id: 'motorCategory', class: 'selectpicker' %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="motorCategory">Motor Reg number</label>
+                      <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                          <div class="registration-number-container">
+                            <div class="country-section">
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="14" viewBox="0 0 950 943">
+                                </svg>
+                              </span>
+                              <span>GB</span>
+                            </div>
+                            <div class="input-field">
+                              <input type="text" name='motor[reg_no]' value="<%= @motor.reg_no %>" class="form-control" placeholder="W12T P0W3R" data-behavior='fetch_motor_data' data-url="<%= look_up_motors_path %>"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                          <span class="description"><span>NOTE:</span> Enter UK registration number or manually select categories.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorMake">Make</label>
+                      <%= select_tag "motor[make]", options_for_select(Motor::MOTOR_MAKE, @motor.make), id: 'motorMake', class: 'selectpicker' %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorModel">Model</label>
+                      <%= select_tag "motor[model]", options_for_select(Motor.options_for(:model), @motor.model), id: 'motorModel', class: 'selectpicker' %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorTrim">Trim</label>
+                      <%= select_tag "motor[trim]", options_for_select(Motor.options_for(:trim), @motor.trim), id: 'motorTrim', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorBodyType">Body Type</label>
+                      <%= select_tag "motor[body_type]", options_for_select(Motor.options_for(:body_type), @motor.body_type), id: 'motorBodyType', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorMakeYear">Make Year</label>
+                        <%= select_tag "motor[make_year]", options_for_select(Motor.options_for(:make_year), @motor.make_year), id: 'motorMakeYear', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorMileage">Mileage</label>
+                         <%= select_tag "motor[mileage]", options_for_select(Motor.options_for(:mileage), @motor.mileage), id: 'motorMileage', class: 'selectpicker'  %>               
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorEngineSize">Engine Size</label>
+                      <%= select_tag "motor[engine_size]", options_for_select(Motor.options_for(:engine_size), @motor.engine_size), id: 'motorEngineSize', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorFuelType">Fuel Type</label>
+                      <%= select_tag "motor[fuel_type]", options_for_select(Motor.options_for(:fuel_type), @motor.fuel_type), id: 'motorFuelType', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorAcceleration">Acceleration</label>
+                      <%= select_tag "motor[acceleration]", options_for_select(Motor.options_for(:acceleration), @motor.acceleration), id: 'motorAcceleration', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorTopSpeed">Top Speed</label>
+                      <%= select_tag "motor[top_speed]", options_for_select(Motor.options_for(:top_speed), @motor.top_speed), id: 'motorTopSpeed', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorCo2Emissions">CO2 Emissions</label>
+                      <%= select_tag "motor[co2_emissions]", options_for_select(Motor.options_for(:co2_emissions), @motor.co2_emissions), id: 'motorCo2Emissions', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorFuelConsumption">Fuel Consumption</label>
+                      <%= select_tag "motor[fuel_consumption]", options_for_select(Motor.options_for(:fuel_consumption), @motor.fuel_consumption), id: 'motorFuelConsumption', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>                  
+
+                  <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorGearbox">Gearbox</label>
+                      <%= select_tag "motor[gearbox]", options_for_select(Motor.options_for(:gearbox), @motor.gearbox), id: 'motorGearbox', class: 'selectpicker'  %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>                  
+                  
+                  
+                  
+
+                </div>
+              </div>
+              <div class="tags-container">
+                <ul class="tags-list">
+                  <li class="tag">
+                    <span>Mercedes-benz CLK</span>
+                    <a href="#" class="remove-btn">
+                      <i class="zmdi zmdi-close"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block">
+              <%= render partial: 'entities/upload_photos_and_videos_section', locals: { type: 'motor' } %>
+            </div>
+            <div class="content-block">
+              <div class="block-header">
+                <h4>Aditional Details</h4>
+              </div>
+              <div class="block-body">
+                <span class="description">Motor description</span>
+                <div class="form-group">
+                  <textarea name="motor[profile_attributes][about]" id="motorDescription" cols="30" rows="4" class="form-control">
+                    <%= @motor.about %>
+                  </textarea>
+                  <span class="form-control-border"></span>
+                </div>
+              </div>
+            </div>
+            <div class="buttons-block">
+              <div class='hidden_images hidden'></div>
+              <%= submit_tag "Update motor", class: 'btn btn-primary btn-block' %>
+            </div>
+          </div>
+          <%= render partial: 'sidebar_nav' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

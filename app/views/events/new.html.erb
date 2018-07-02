@@ -1,0 +1,78 @@
+<%= form_tag(events_path, method: :post, multipart: true, class: 'form content-form', id: 'new_event', remote: true) do %>
+  <%= render partial: 'entities/cover_pic_container', locals: { type: 'event', current: nil } %>
+  <div class='container error'></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="main-container">
+          <%= render partial: 'events/sidebar_container' %>
+          <div class="content-container mobile-order-1">
+            <div class="content-block">
+              <div class="block-header">
+                <h4>About Event</h4>
+              </div>
+              <div class="block-body">
+                <span class="description">Event details</span>
+                <div class="form-group">
+                  <%= text_area_tag 'event[profile_attributes][about]', '', class: 'form-control', rows: 4, cols: 30 %>
+                  <span class="form-control-border"></span>
+                </div>
+              </div>
+            </div>
+            <div class="content-block">
+              <div class="block-header">
+                <h4>Event Address</h4>
+              </div>
+              <div class="block-body">
+                <form class="form content-form">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group with-icon">
+                        <label for="company_location">Enter event address</label>
+                        <i class="zmdi zmdi-pin"></i>
+                        <%= text_field_tag 'event[address_attributes][address]', @event.location, class: 'form-control', placeholder: 'Unit1, Aultone Yard, Carshalton , Surrey, SM5 2LH, United Kingdom', id: 'location-search-txt', 'data-behavior': 'location_autocomplete' %>
+                        <div class="results" id="location-search-results"></div>
+                        <div class="form-control-border"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="event_phone">Phone number (optional)</label>
+                        <%= phone_field_tag 'event[phone]', @event.phone, class: 'form-control', placeholder: 'Enter Phone number' %>
+                        <div class="form-control-border"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="event_email">Email address (optional)</label>
+                        <%= email_field_tag 'event[email]', @event.email, class: 'form-control', placeholder: 'Enter email address', 'aria-describedby': 'emailHelp' %>
+                        <div class="form-control-border"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="event_website">Website (optional)</label>
+                        <%= url_field_tag 'event[website]', @event.website, class: 'form-control', placeholder: 'Enter website link' %>
+                        <div class="form-control-border"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <%= render partial: 'entities/categories_block', locals: { type: 'event', current: nil } %>
+          </div>
+          <div class="content-container mobile-order-3">
+            <%= render partial: 'entities/upload_photos_and_videos_section', locals: { type: 'event', current: nil } %>
+            <div class="buttons-block">
+              <div class='hidden_images hidden'></div>
+              <%= submit_tag "Post Event", class: 'btn btn-primary btn-block' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

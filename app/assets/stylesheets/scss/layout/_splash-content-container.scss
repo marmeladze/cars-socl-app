@@ -1,0 +1,51 @@
+.splash-content-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 129px);
+  width: calc(100% - 480px);
+  padding: 90px 60px 60px;
+  z-index: 9;
+
+  .spash-content {
+
+    h1 {
+      margin-top: 49px;
+      font: {
+        size: 70px;
+        family: $base-font-family-texta-heavy;
+      }
+      color: #fff;
+    }
+
+    h4 {
+      margin-top: 10px;
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 19px;
+      };
+      color: rgba(255, 255, 255, .6);
+      text-transform: uppercase;
+      letter-spacing: 7.6px;
+    }
+  }
+}
+
+@media all and (max-width: 1199px) {
+  .splash-content-container {
+    .spash-content {
+      h1 {
+        font-size: 50px;
+      }
+      h4 {
+        font-size: 15px;
+      }
+    }
+  }
+}
+@media all and (max-width: 991px) {
+  .splash-content-container {
+    display: none;
+  }
+}

@@ -1,0 +1,41 @@
+<% if entity.new_record? %>
+  <div class="widget collapsible-widget">
+    <div class="widget-header">
+      <span class="title with-icon"><i class="zmdi zmdi-folder-person"></i>Select <%= type.capitalize %> Type</span>
+    </div>
+    <div class="widget-body">
+      <ul class="select-list">
+        <li>
+          <div class="styled-checkbox">
+            <input type="radio" id="openEntity" name="<%= field_name %>" value="0" checked>
+            <label for="openEntity">
+              <span class="checkbox"></span>
+              <span class="title">Open <%= type %></span>
+              <span class="description">Everybody can join</span>
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="styled-checkbox">
+            <input type="radio" id="byRequestEvent" name="<%= field_name %>" value="1">
+            <label for="byRequestEvent">
+              <span class="checkbox"></span>
+              <span class="title">By request</span>
+              <span class="description">Anybody can join but admin needs to accept them</span>
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="styled-checkbox">
+            <input type="radio" id="privateEntity" name="<%= field_name %>" value="2">
+            <label for="privateEntity">
+              <span class="checkbox"></span>
+              <span class="title">Private <%= type %></span>
+              <span class="description">Invite people</span>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<%= form_tag(posts_path, method: :post, multipart: true, class: 'form content-form', id: 'new_blog_post', remote: true, 'data-behavior': 'blog_post_form', 'data-target': '#blogs .content-container.details') do %>
+  <div class="content-container">
+    <div class="content-block">
+      <div class="block-header">
+        <h4>Add blog photo</h4>
+      </div>
+      <div class="block-body">
+        <div class="images-upload-container">
+          <div class="main-image-wrapper image-item mb-0 image-placeholder">
+            <%= file_field_tag 'post[photo_attributes][file]', class: 'hidden', id: 'blog_photo', 'data-behavior': 'update_placeholder', 'data-reference': '.main-image-wrapper', 'data-update-style': 'true' %>
+            <label for='blog_photo'>
+              <span class="add-item">
+                <i class="zmdi zmdi-camera-add"></i>
+                <span>Add photo or video</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="block-header">
+        <h4>Add blog text</h4>
+      </div>
+      <div class="block-body">
+        <div class="ckediter-text-wrapper">
+          <textarea name="post[body]" id="blog_post_body" class="ckeditor-area" rows="10" cols="80" data-behavior='enable_ckeditor'></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="buttons-block">
+      <%= hidden_field_tag 'post[type]', 'blog_post' %>
+      <%= submit_tag "Post blog", class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>

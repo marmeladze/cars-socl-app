@@ -1,0 +1,6 @@
+<label for="motorCategory"><%= label %></label>
+<select class="selectpicker" name='<%= input_name %>' id="<%= input_name.camelize(:lower) %>">
+  <% options.each do |opt| %>
+    <option data-tokens='<%= "#{opt}" %>'><%= "#{opt}" %></option>
+  <% end %>
+</select>

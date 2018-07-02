@@ -1,0 +1,9 @@
+<% if current_user.errors.present? %>
+  <div class="content-block errors">
+    <ul>
+      <% current_user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,10 @@
+#manageAdmins {
+  .users-list {
+    max-height: 400px;
+    overflow-y: scroll;
+
+    .list-item {
+      padding-right: 10px;
+    }
+  }
+}

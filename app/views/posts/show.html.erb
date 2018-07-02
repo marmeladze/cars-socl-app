@@ -1,0 +1,18 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <div class="main-container">
+        <div class="sidebar-container mobile-hidden">
+          <%= render partial: 'events/index' %>
+          <%#= render partial: 'companies/recommonded' %>
+          <%#= render partial: 'groups/recommonded' %>
+          <%= render partial: 'shared/sidebar_footer' %>
+        </div>
+
+        <div class="content-container mobile-order-1">
+          <%= render partial: 'posts/post', locals: {post: @post} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

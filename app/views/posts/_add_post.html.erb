@@ -1,0 +1,37 @@
+<div class="content-block post-add-container">
+  <%= form_tag(posts_path, method: :post, multipart: true, class: 'form content-form', id: 'new_post', remote: true, 'data-behavior': 'blog_post_form', 'data-target': target) do %>
+    <div class="post-add-body">
+      <div class="avatar-container">
+        <%= image_tag current_user.thumb_url, class: 'avatar-img', alt: '' %>
+      </div>
+      <div class="text-field-container">
+        <textarea name='post[body]' id="postAddTextarea" cols="100" rows="1" data-behavior='adjust_textarea' placeholder="Post something on timeline..."></textarea>
+      </div>
+    </div>
+    <div class='post-image-container hidden'>
+      <img alt='' src=''>
+    </div>
+    <div class="post-add-footer">
+      <div class="footer-post-menu">
+        <ul class="post-menu">
+          <li><a href="#"><i class="zmdi zmdi-pin-drop"></i></a></li>
+          <li>
+            <label for='post_photo_field'>
+              <span><i class="zmdi zmdi-camera"></i></span>
+            </label>
+          </li>
+          <li><a href="#"><i class="zmdi zmdi-videocam"></i></a></li>
+          <li>
+            <%= link_to 'Blog', '#', class: 'badge badge-primary', 'data-behavior': 'load_blog_form', "data-form-url" => '/publish/blog_post', 'data-target': '#blogs .content-container' %>
+          </li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <%= file_field_tag 'post[photo_attributes][file]', class: 'hidden', id: 'post_photo_field', 'data-behavior': 'update_placeholder', 'data-reference': '.post-image-container' %>
+        <%= button_tag type: 'submit', class: 'btn btn-primary' do %>
+          <span>Post</span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<% [:success, :notice, :error].each do |key| %>
+  <% if flash[key].present? %>
+    <div class="info">
+      <div class="alert alert-<%= key %>">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <%= flash[key] %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

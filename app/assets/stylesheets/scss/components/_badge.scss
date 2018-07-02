@@ -1,0 +1,26 @@
+.badge {
+  font: {
+    family: $base-font-family-proxima-nova-bold;
+    size: 12px;
+  };
+  padding: 5px 12px;
+  line-height: 12px;
+  color: #fff;
+
+  &.counter-badge {
+
+  }
+  &.badge-success {
+    background-color: #34ac59;
+  }
+  &.badge-info {
+    background-color: #609ed8;
+  }
+  &.badge-founder {
+    background-color: #ad35c7;
+  }
+  &.badge-car {
+    border-radius: 3px;
+    background-color: #c40078;
+  }
+}

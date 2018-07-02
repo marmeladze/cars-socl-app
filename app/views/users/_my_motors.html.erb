@@ -1,0 +1,29 @@
+<div class="content-block article article-short">
+  <div class="article-header">
+    <h4>My Motors</h4>
+    <% if motors.count > 3 %>
+      <a href="#" class="btn btn-secondary btn-small btn-view-all" data-behavior='trigger_click' data-target='motorGarageTab'>
+        <span>View all</span>
+      </a>
+    <% end %>
+  </div>
+  <div class="article-body">
+    <div class="cars-list-container">
+      <% motors[0..2].each do |motor| %>
+        <div class="car-container">
+          <%= link_to motor_path(motor), class: 'image-container', target: '_blank' do %>
+            <%= image_tag(motor.avatar.thumb.url) %>
+          <% end %>
+          <div class="car-info">
+            <%= link_to motor.name, motor_path(motor), class: 'car-title' %>
+            <span class="car-description"><%= motor.body_type %></span>
+            <span class="car-stats"><i class="zmdi zmdi-eye"></i><span>0 Views</span></span>
+          </div>
+        </div>
+      <% end %>
+      <%= link_to new_motor_path, class: 'add-motor-btn' do %>
+        <i class="i-plus-circle"></i><span>Add Motor</span>
+      <% end %>
+    </div>
+  </div>
+</div>

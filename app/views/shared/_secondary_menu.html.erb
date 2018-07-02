@@ -1,0 +1,16 @@
+<ul class="nav-menu secondary-menu">
+  <li>
+    <%= link_to(user_profile_path, class: 'profile-link-container') do %>
+      <span class="avatar-container">
+        <%= image_tag current_user.thumb_url, class: 'avatar-img', alt: current_user.display_name %>
+      </span>
+      <span class="user-name"><%= current_user.display_name %></span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "<span>Newsfeed</span>".html_safe, news_feed_path %>
+  </li>
+  <li>
+    <%= render partial: 'shared/secondary_menu_dropdown' %>
+  </li>
+</ul>

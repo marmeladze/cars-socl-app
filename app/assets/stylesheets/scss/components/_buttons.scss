@@ -1,0 +1,148 @@
+.btn {
+  cursor: pointer;
+  font: {
+    size: 13px;
+    family: $base-font-family-texta-heavy;
+  };
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  border: none;
+  box-shadow: none;
+  padding: 1rem .75rem;
+  position: relative;
+
+  span {
+    position: relative;
+    z-index: 4;
+  }
+
+  &.btn-primary {
+    color: #fff;
+    @include gradient-background(#f02936, #fd664e);
+  }
+  &.btn-secondary {
+    border: 1px solid #f5403f;
+    background-color: #fff;
+    color: #fd674e;
+
+    &:after {
+      background-color: rgba(240, 40, 54, .1);
+    }
+  }
+  &.btn-small {
+    padding: .65rem .75rem;
+  }
+  &.btn-leave {
+    background: #4a4b4b;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    @include position-abs-vh-center;
+    background-color: rgba(0, 0, 0, .1);
+    transition: all .5s 0s;
+    z-index: 3;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+.link {
+  font: {
+    size: 16px;
+    family: $base-font-family-proxima-nova-regular;
+  }
+  color: #c4c7cb;
+
+  &:hover, &:focus {
+    color: #c4c7cb;
+  }
+}
+.play-video-btn {
+  display: inline-block;
+  text-decoration: none;
+
+  .icon-container {
+    width: 75px;
+    height: 75px;
+    display: flex;
+    position: relative;
+    text-decoration: none;
+    border-radius: 50%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .2);
+    @include gradient-background(#f02936, #fd664e);
+
+    span {
+      text-decoration: none;
+    }
+
+    .i-play {
+      display: block;
+      position: relative;
+      width: 14px;
+      height: 25px;
+      margin: auto;
+      @include background('icons/i-play.png', center, no-repeat, auto);
+      z-index: 4;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      @include position-abs-vh-center;
+      background-color: rgba(0, 0, 0, .1);
+      transition: all .5s 0s;
+      z-index: 3;
+    }
+  }
+  .text {
+    display: block;
+    margin-top: 5px;
+    color: #fff;
+    font: {
+      size: 13px;
+      family: $base-font-family-texta-heavy;
+    };
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  &:hover {
+    .icon-container {
+      &:after {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    span {
+      text-decoration: none;
+    }
+  }
+}
+.text-edit-btn {
+  color: #bababa;
+  transition: color .5s 0s;
+
+  i {
+    transform: translateY(1px);
+    font-size: 30px;
+  }
+
+  &:hover {
+    color: #8e8e8e;
+  }
+}

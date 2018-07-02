@@ -1,0 +1,14 @@
+<div class="widget collapsible-widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-sort-amount-desc"></i>Location & Contact details</span>
+  </div>
+  <div class="widget-body contacts-wrapper">
+    <div id="eventMap2" class="event-map"></div>
+    <ul class="contacts-list">
+      <li><i class="zmdi zmdi-pin"></i><span><%= entity.location %></span></li>
+      <li><i class="zmdi zmdi-phone"></i><span><%= entity.phone %></span></li>
+      <li><i class="zmdi zmdi-email"></i><span><%= entity.email %></span></li>
+      <li><i class="zmdi zmdi-globe"></i><%= link_to entity.website, entity.website %></li>
+    </ul>
+  </div>
+</div>

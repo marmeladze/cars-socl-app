@@ -1,0 +1,245 @@
+.content-block {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+  margin-bottom: 25px;
+  border-radius: 2px;
+
+  .title-container {
+    display: flex;
+    padding: 20px 22px;
+
+    h3 {
+      margin: 0;
+      padding: 0;
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 34px;
+      };
+      color: #3c3c3c;
+    }
+    h4 {
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 28px;
+      };
+      color: #3c3c3c;
+    }
+    .description {
+
+    }
+    .filters-container {
+      margin: auto 0 auto auto;
+      display: flex;
+      align-items: center;
+
+      .styled-togglebox {
+        &:not(:last-child){
+          margin-right: 32px;
+        }
+      }
+    }
+  }
+  .block-header, .block-body {
+    padding: 20px;
+  }
+  .block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      padding: 0;
+    }
+    h4 {
+      position: relative;
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 28px;
+      };
+      color: #3c3c3c;
+
+      &.with-icon {
+        padding-left: 30px;
+
+        .zmdi, svg {
+          left: 0;
+          @include position-abs-v-center;
+        }
+        .zmdi {
+          color: #ed1f24;
+        }
+      }
+    }
+    .link {
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 14px;
+      };
+      color: #ed1f24;
+    }
+  }
+  .block-body {
+    padding-top: 0;
+
+    .description {
+      font: {
+        size: 13px;
+        family: $base-font-family-texta-heavy;
+      };
+      color: #bababa;
+      text-transform: uppercase;
+
+      &.type-2 {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 14px;
+        };
+        color: #3c3c3c;
+        line-height: 16px;
+        text-transform: none;
+      }
+    }
+    .divider {
+      border-top: 1px solid #ececec;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 14px;
+      };
+      color: #3c3c3c;
+      margin-bottom: 20px;
+    }
+    .form-group {
+      &.search-group {
+        margin-bottom: 0;
+        padding: 10px 10px 0;
+
+        label {
+          font: {
+            family: $base-font-family-texta-heavy;
+            size: 13px;
+          };
+          color: #bababa;
+          text-transform: uppercase;
+        }
+
+        & > div {
+          position: relative;
+        }
+
+        .form-control {
+          font: {
+            family: $base-font-family-proxima-nova-semibold;
+            size: 16px;
+          };
+          color: #3c3c3c;
+
+          &::placeholder {
+            font: {
+              family: $base-font-family-proxima-nova-semibold;
+              size: 16px;
+            };
+            color: #3c3c3c;
+          }
+        }
+        .search-btn {
+          font-size: 22px;
+          color: #ed1f24;
+          line-height: 18px;
+          right: 0;
+          @include position-abs-v-center;
+        }
+      }
+    }
+  }
+  .block-footer {
+
+    .more-block-btn {
+      display: block;
+      padding: 0 20px;
+      font: {
+        size: 32px;
+      };
+      color: #bbb;
+      line-height: 10px;
+      text-align: center;
+      background-color: #f6f8fa;
+    }
+  }
+
+  &.settings-block {
+    .block-body {
+      h4 {
+        padding: 20px 0 15px;
+        margin-bottom: 0;
+      }
+      .bootstrap-select {
+        .btn {
+          &.dropdown-toggle {
+            padding-left: 5px;
+          }
+        }
+      }
+      .user-profile-info {
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+
+        .avatar-container {
+          margin: 0 20px 0 0;
+          width: 100px;
+          height: 100px;
+          border: none;
+        }
+        .profile-info {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          .user-name {
+            font: {
+              family: $base-font-family-proxima-nova-regular;
+              size: 34px;
+            };
+            line-height: 38px;
+          }
+        }
+      }
+    }
+    .block-footer {
+      padding: 10px 20px 30px;
+    }
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .content-block{
+    .title-container {
+      flex-wrap: wrap;
+
+      h3 {
+        width: 100%;
+        flex: none;
+        margin-bottom: 10px;
+      }
+      .filters-container {
+        width: 100%;
+        flex: none;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .content-block{
+    .title-container {
+
+      h4 {
+        font-size: 20px;
+      }
+    }
+  }
+}

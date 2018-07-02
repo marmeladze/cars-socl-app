@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="tab-content" id="myTabContent">
+        <%= render partial: 'about' %>
+        <%= render partial: 'all_posts' %>
+        <%= render partial: 'shared/photos_tab', locals: { photos: @group.photos } %>
+        <%= render partial: 'shared/videos_tab', locals: { videos: @group.videos } %>
+        <%= render partial: 'shared/blogs_tab' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+</footer>
+
+<div class="mobile-menu">
+  <ul>
+    <li>
+      <a href="http://motor.valeda.co/login.html"><i class="ion-ios-home-outline"></i></a>
+    </li>
+    <li>
+      <a href="http://motor.valeda.co/my_profile.html"><i class="ion-ios-person-outline"></i></a>
+    </li>
+    <li class="active">
+      <a href="http://motor.valeda.co/settings.html"><i class="ion-ios-gear-outline"></i></a>
+    </li>
+    <li class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="#"><i class="ion-ios-list-outline"></i></a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
+        <div class="dropdown-body">
+          <a class="dropdown-item" href="http://motor.valeda.co/add_company.html">Create company profile</a>
+          <a class="dropdown-item" href="http://motor.valeda.co/add_event.html">Create event</a>
+          <a class="dropdown-item" href="http://motor.valeda.co/add_group.html">Create group</a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

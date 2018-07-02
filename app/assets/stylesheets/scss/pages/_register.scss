@@ -1,0 +1,98 @@
+.register-page,
+.login-page {
+
+  .main-splash {
+    .splash-section {
+      z-index: 2;
+
+      .content-container {
+        position: relative;
+      }
+
+      .overlay {
+        z-index: 3;
+      }
+
+      &.testimonials-section {
+        z-index: 5;
+        @include position-abs-t-l();
+        @include background('splash-images/f1_01.jpg');
+
+        .splash-content-container {
+          display: block;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: -moz-linear-gradient(45deg, rgba(0,0,0,0.46) 0%, rgba(0,0,0,0.75) 67%, rgba(0,0,0,0.8) 87%, rgba(0,0,0,0.8) 100%);
+          background: -webkit-linear-gradient(45deg, rgba(0,0,0,0.46) 0%,rgba(0,0,0,0.75) 67%,rgba(0,0,0,0.8) 87%,rgba(0,0,0,0.8) 100%);
+          background: linear-gradient(45deg, rgba(0,0,0,0.46) 0%,rgba(0,0,0,0.75) 67%,rgba(0,0,0,0.8) 87%,rgba(0,0,0,0.8) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75000000', endColorstr='#cc000000',GradientType=1 );
+          z-index: 6;
+        }
+      }
+    }
+  }
+
+}
+.register-page {
+  .main-splash {
+    .splash-section {
+      &.testimonials-section {
+        @include background('splash-images/f1_01.jpg');
+      }
+    }
+  }
+}
+.login-page {
+  .main-splash {
+    .splash-section {
+      &.testimonials-section {
+        @include background('splash-images/action-bike-bike-rider-biker-217872.jpg');
+      }
+    }
+  }
+}
+
+@media all and (max-width: 991px) {
+  .register-page {
+    display: flex;
+    flex-direction: column;
+
+    .main-splash {
+      order: 2;
+
+      .splash-section {
+        height: auto;
+
+        &.main-section {
+          display: none;
+        }
+        &.testimonials-section {
+          position: relative;
+          opacity: 1;
+          visibility: visible;
+
+          .splash-content-container {
+            width: 100%;
+            padding: 60px 20px;
+
+            .brand {
+              display: none;
+            }
+          }
+          .sections-controller-container {
+            display: none;
+          }
+        }
+      }
+    }
+    .auth-container {
+      order: 1;
+    }
+  }
+}

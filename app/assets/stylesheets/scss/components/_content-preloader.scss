@@ -1,0 +1,17 @@
+.content-preloader {
+  margin: 10px 0;
+
+  .preloader {
+    margin: 0 auto;
+    display: block;
+    width: 35px;
+    height: 35px;
+    animation: {
+      name: rotate;
+      duration: 900ms;
+      delay: 0s;
+      iteration-count: infinite;
+      timing-function: linear;
+    };
+  }
+}

@@ -1,0 +1,21 @@
+<div class="widget collapsible-widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-calendar-note"></i>My Events</span>
+  </div>
+  <div class="widget-body">
+    <div class="widget-items-list">
+      <% events.each do |event| %>
+        <%= link_to event_path(event), class: 'item boxed-item', target: '_blank' do %>
+          <span class="avatar-container">
+            <%= image_tag event.thumb_url, class: 'avatar-img' %>
+          </span>
+          <div class="info-container">
+            <span class="item-title"><%= event.name %></span>
+            <span class="item-status">Attending</span>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <a href="#" class="link-more">See More</a>
+  </div>
+</div>

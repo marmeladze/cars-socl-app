@@ -1,0 +1,13 @@
+Hi <%= @admin.display_name %>,
+
+<p>
+  You got a request from 
+  <%= link_to @attendee.display_name, profile_user_url(@attendee) %> to join event <%= link_to @event.name, event_url(@event), target: '_blank' %>.
+</p>
+
+<p>
+  Manage attendees <%= link_to 'here', event_url(id: @event.id, anchor: 'attendees') %>.
+</p>
+
+Regards,
+Team, MotorBrag.

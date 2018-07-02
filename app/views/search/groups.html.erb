@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="main-container">
+        <%= render partial: 'search/advanced_search/groups' %>
+        <%= render partial: 'search/search_box_container', locals: { form_action: groups_search_path} %>  
+        <div class="content-container mobile-order-3">
+          <div class="content-block">
+            <div class="block-header">
+              <h4 class="with-icon"><i class="zmdi zmdi-accounts-alt"></i>Groups</h4>
+              <a href="#" class="link">See all</a>
+            </div>
+            <div class="block-body">
+              <div class="content-items-list full-width">
+                <% @results.each do |group| %>
+                  <div class="item">
+                    <%= link_to group_path(group), class: 'avatar-container', target: '_blank' do %>
+                      <%= image_tag group.thumb_url, alt: '' %>
+                    <% end %>
+                    <div class="info">
+                      <%= link_to group.name, group_path(group), class: 'title', target: '_blank' %>
+                      <!-- <span class="location"><i class="zmdi zmdi-pin"></i><span>London</span></span> -->
+                    </div>
+                    <div class="buttons-container">
+                      <a href="#" class="btn btn-primary btn-follow"><span>Join group</span></a>
+                      <a href="#" class="btn btn-secondary btn-more"><i class="zmdi zmdi-more"></i></a>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="block-footer">
+              <a href="#" class="more-block-btn"><i class="zmdi zmdi-more"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

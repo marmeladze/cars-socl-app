@@ -1,0 +1,15 @@
+<div class="widget collapsible-widget my-groups-widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-accounts-alt"></i>My Groups</span>
+  </div>
+  <div class="widget-body">
+    <%= render partial: 'groups/list_groups', locals: { groups: groups } %>
+    <% if @user == current_user %>
+      <div class="buttons-container">
+        <%= link_to new_group_path, class: 'btn btn-primary btn-block btn-small' do %>
+          <span>Create a group</span>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

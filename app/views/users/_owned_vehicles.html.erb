@@ -1,0 +1,25 @@
+<div class="widget collapsible-widget users_vehicles_widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-badge-check"></i>Owned Vehicles</span>
+  </div>
+  <div class="widget-body">
+    <div class="widget-items-list">
+      <% current_user.motors.each do |vehicle| %>
+        <div class="item boxed-item">
+          <a href="#" class="avatar-container">
+            <%= image_tag vehicle.thumb_url, class: 'avatar-img', alt: 'Avatar' %>
+          </a>
+          <div class="info-container">
+            <%= link_to vehicle.name, motor_path(vehicle), class: 'item-title' %>
+            <span class="item-description"><%= vehicle.body_type %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="widget-footer">
+    <%= link_to new_motor_path, class: 'btn btn-primary btn-block btn-small' do  %>
+      <span>Add a Vehicle</span>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="sidebar-container mobile-order-2">
+  <%= render partial: 'shared/share_page' %>
+  <%= render partial: 'groups/my_groups', locals: { groups: @user.groups } %>
+  <%= render partial: 'events/my_events', locals: { events: @user.events } %>
+  <%= render partial: 'companies/followed_companies' %>
+  <%= render partial: 'shared/sidebar_footer' %>
+</div>

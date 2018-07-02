@@ -1,0 +1,32 @@
+<li>
+  <div class='dropdown'>
+    <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a href="#">
+        <% if current_user.unread_notifications_count > 0 %>
+          <span class="badge counter-badge"><%= current_user.unread_notifications_count %></span>
+        <% end %>
+        <i class="zmdi zmdi-notifications"></i>
+      </a>
+    </div>
+    <div class="dropdown-menu dropdown-menu-right dropdown-notifications" aria-labelledby="dropdownNotificatioinButton">
+      <div class="dropdown-header">
+        <span class="title">Notifications</span>
+        <% if current_user.unread_notifications_count > 0 %>
+          <span class="info"><%= current_user.unread_notifications_count %> new notifications</span>
+        <% end %>
+      </div>
+      <div class="dropdown-body">
+        <div class="notifications-list">
+          <% current_user.notifications[0..5].each do |notification| %>
+            <%= render partial: get_notification_item(notification), locals: { notification: notification, args: notification.args, header: true } %>
+          <% end %>
+        </div>
+      </div>
+      <div class="dropdown-footer">
+        <%= link_to notifications_path, class: 'btn btn-primary btn-block' do %>
+          <span>View all</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>

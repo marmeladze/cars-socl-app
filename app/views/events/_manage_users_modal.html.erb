@@ -1,0 +1,45 @@
+<div class="modal fade" id="manageAttendees">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Manage Attendees</h4>
+      </div>
+      <% if @event.new_record? %>
+        <div class="modal-body">
+          <div class="search-container">
+            <div class="form-group">
+              <%= text_field_tag 'search_key', nil, class: 'form-control', placeholder: 'Search for users...', id: 'attendee-user-search-txt', 'data-behavior': 'users_autocomplete', 'data-append-dom': '#manageAttendees #attendees-list', 'data-item-behavior': 'add_attendee_user_to_list', 'data-new-record': @event.new_record? %>
+              <i class="zmdi zmdi-search"></i>
+            </div>
+          </div>
+          <div class="users-list" id='attendees-list'>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-block"><span>Finish</span></button>
+        </div>
+      <% else %>
+        <div class="modal-body">
+          <%= form_tag(send_invitations_event_path, method: :post, class: 'form content-form', id: 'send_invitations', remote: true) do %>
+            <div class="search-container">
+              <div class="form-group">
+                <%= text_field_tag 'search_key', nil, class: 'form-control', placeholder: 'Search for users...', id: 'attendee-user-search-txt', 'data-behavior': 'users_autocomplete', 'data-append-dom': '#manageAttendees #attendees-list', 'data-item-behavior': 'add_attendee_user_to_list', 'data-new-record': @event.new_record? %>
+                <i class="zmdi zmdi-search"></i>
+              </div>
+            </div>
+            <div class="users-list" id='attendees-list'>
+            </div>
+            <div class='invitatees_containers users-list'>
+              <hr>
+              <h6>Selected Users</h6>
+              <hr>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary btn-block"><span>Send Invitations</span></button>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

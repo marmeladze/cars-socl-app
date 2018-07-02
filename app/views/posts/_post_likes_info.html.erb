@@ -1,0 +1,22 @@
+<% random_liker = post.random_liker %>
+<% likes_count = post.likers.count %>
+<% if likes_count > 0 %>
+  <%= render partial: 'shared/likes_svg' %>
+  <span>
+    <span class="hidden-mobile">
+      <%= link_to random_liker.display_name, user_profile_path(id: random_liker.id), target: '_blank' %>
+      <% if likes_count > 1 %>
+        and </span>
+        <a href="javascript:void(0);"><%= likes_count - 1 %></a>
+      <% else %>
+         liked this &nbsp;|&nbsp; </span>
+      <% end %>
+  </span>
+<% end %>
+<span>
+  <% if post.is_liked_by?(current_user) %>
+    <%= link_to 'dislike', '#', 'data-href': dislike_post_path(id: post, authenticity_token: form_authenticity_token), 'data-behavior': 'ajax_post', 'data-target': "post-#{post.id}-likes" %>
+  <% else %>
+    <%= link_to 'like', '#', 'data-href': like_post_path(id: post, authenticity_token: form_authenticity_token), 'data-behavior': 'ajax_post', 'data-target': "post-#{post.id}-likes" %>
+  <% end %>
+</span>

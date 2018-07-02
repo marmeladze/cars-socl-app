@@ -1,0 +1,13 @@
+<div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="photosTab">
+  <div class="main-container">
+    <div class="content-container full-width">
+      <div class="content-block gallery-section images-gallery">
+        <% photos.each do |photo| %>
+          <a class="fancyimage" data-fancybox="gallery" href="<%= photo.file.url %>">
+            <%= image_tag(photo.file.galary_thumb.url) %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="content-block category-block" data-behavior='add_category' data-entity-type='<%= type %>'>
+  <div class="block-header">
+    <h4>Company Category</h4>
+  </div>
+  <div class="block-body">
+      <div class="row">
+        <%= f.fields_for :categories do |cf| %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="motor_category">Motor category</label>
+              <%= cf.select :name, options_for_select(Motor::MOTOR_CATEGORIES), selected: cf.object.name, class: 'selectpicker' %>
+              <div class="form-control-border"></div>
+            </div>
+          </div>          
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="motor_category">Motor category</label>
+              <%= cf.select :make, options_for_select(Motor::MOTOR_MAKE), selected: cf.object.make, class: 'selectpicker' %>
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+        <% end %>
+        <div class="col-md-6">
+          <div class="button-container">
+            <%= link_to '#', class: 'btn btn-secondary disabled', id: 'add_category_btn' do %>
+              <span>Add category</span>
+            <% end %>
+            <p class='text-danger hidden'>Tag already added</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="tags-container">
+    <ul class="tags-list">
+    </ul>
+  </div>
+</div>

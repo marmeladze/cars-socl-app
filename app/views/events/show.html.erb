@@ -1,0 +1,113 @@
+<div class="cover-image-container">
+  <div class="cover-image-wrapper" style="background-image: url('<%= @event.cover_pic.url %>')">
+    <div class="overlay"></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="profile-page-heading">
+          <div class="user-profile-info">
+            <% if @event.admin_users.include?(current_user) %>
+              <%= link_to edit_event_path(@event) do %>
+                <span class="btn btn-primary" style="position: absolute; left: 0; top: -105px;">EDIT</span>
+              <% end %>
+              <%= form_tag(upload_pic_event_path(@event), method: :post, multipart: true, class: 'form content-form') do %>
+                <%= file_field_tag "event[profile_attributes][cover_pic]", class: 'hidden', id: "event_cover_pic", 'data-behavior': 'submit_form' %>
+                <label for='event_cover_pic'>
+                  <span class="change-cover-image-btn btn btn-primary">
+                    <span>Change cover</span>
+                  </span>
+                </label>
+              <% end %>
+            <% end %>           
+            <div class="avatar-container">
+              <%= image_tag(@event.thumb_url, class: 'avatar-img') %>
+              <% if @event.admin_users.include?(current_user) %>
+                <%= form_tag(upload_pic_event_path(@event), method: :post, multipart: true, class: 'form content-form') do %>
+                  <%= file_field_tag "event[profile_attributes][avatar]", class: 'hidden', 'data-behavior': 'submit_form', id: 'event_profile_pic' %>
+                  <label for='event_profile_pic'>
+                    <span class="add-avatar">
+                      <i class="zmdi zmdi-camera-add"></i>
+                    </span>
+                  </label>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="profile-info">
+              <span class="user-name"><%= @event.name %></span>
+              <span class="location"><i class="zmdi zmdi-pin"></i><%=  @event.address.city %></span>
+            </div>
+            <div class="profile-stats">
+              <ul class="stats-list">
+                <li>
+                  <span class="stats-counter"><%= @event.attendees.count %></span>
+                  <span class="stats-title">Attendees</span>
+                </li>
+                <li>
+                  <span class="stats-counter">0</span>
+                  <span class="stats-title">Page Views</span>
+                </li>
+              </ul>
+            </div>
+            <div class="profile-buttons">
+              <% unless @event.admin_users.include?(current_user) %>
+                <% if @event.attendees.include?(current_user) %>
+                  <%= link_to drop_event_path(@event), method: :post, class: 'btn btn-primary' do %>
+                    <span>Drop from Event</span>
+                  <% end %>
+                <% elsif @event.has_pending_invitation?(current_user) %>
+                  <%= link_to accept_invitation_event_path(@event), class: 'btn btn-primary' do %>
+                    <span>Accept Invitation</span>
+                  <% end %>
+                <% elsif @event.public? %>
+                  <%= link_to attend_event_path(@event), method: :post, class: 'btn btn-primary' do %>
+                    <span>Attend Event</span>
+                  <% end %>
+                <% elsif @event.on_request? %>
+                  <%= link_to join_request_event_path(@event), method: :post, class: 'btn btn-primary' do %>
+                    <span>Request to Attend</span>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="tabs-container page-control-tabs">
+            <ul class="nav nav-tabs content-tabs justify-content-center" id="NewsfeedTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link" id="aboutTab" data-toggle="tab" href="#about" role="tab" aria-controls="about" aria-expanded="true">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" id="allPostsTab" data-toggle="tab" href="#allPosts" role="tab" aria-controls="allPosts">All Posts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="photosTab" data-toggle="tab" href="#photos" role="tab" aria-controls="photos">Photos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="videosTab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos">Videos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="blogsTab" data-toggle="tab" href="#blogs" role="tab" aria-controls="blogs">Blogs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="attendeesTab" data-toggle="tab" href="#attendees" role="tab" aria-controls="attendees">Attendees</a>
+              </li>
+            </ul>
+            <div class="select-container">
+              <span class="label">Show on page</span>
+              <select class="selectpicker" id="pageControlTabs">
+                <option data-tokens="0" value="about">About</option>
+                <option data-tokens="1" value="allPosts">All Posts</option>
+                <option data-tokens="2" value="photos">Photos</option>
+                <option data-tokens="3" value="videos">Videos</option>
+                <option data-tokens="4" value="blogs">Blogs</option>
+                <option data-tokens="5" value="attendees">Attendees</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'main_container' %>

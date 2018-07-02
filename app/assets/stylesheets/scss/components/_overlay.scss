@@ -1,0 +1,5 @@
+.overlay {
+  @include fullsize-fixed;
+  background-color: $overlay-bg;
+  z-index: 3;
+}

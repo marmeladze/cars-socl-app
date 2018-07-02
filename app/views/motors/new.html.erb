@@ -1,0 +1,111 @@
+<%= form_tag(motors_path, method: :post, multipart: true, class: 'form content-form', id: 'new_motor', remote: true) do %>
+  <%= render partial: 'entities/cover_pic_container', locals: { type: 'motor', current: nil } %>
+  <div class='container error'></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="main-container">
+          <div class="content-container">
+            <div class="content-block">
+              <div class="block-header">
+                <h4>Motor Details</h4>
+              </div>
+              <div class="block-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="motorCategory">Motor category</label>
+                      <%= select_tag "motor[motor_category]", options_for_select(Motor::MOTOR_CATEGORIES, Motor::MOTOR_CATEGORIES.first), id: 'motorCategory', class: 'selectpicker' %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="motorCategory">Motor Reg number</label>
+                      <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                          <div class="registration-number-container">
+                            <div class="country-section">
+                              <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="14" viewBox="0 0 950 943">
+                                </svg>
+                              </span>
+                              <span>GB</span>
+                            </div>
+                            <div class="input-field">
+                              <input type="text" name='motor[reg_no]' class="form-control" placeholder="W12T P0W3R" data-behavior='fetch_motor_data' data-url="<%= look_up_motors_path %>"/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                          <span class="description"><span>NOTE:</span> Enter UK registration number or manually select categories.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorMake">Make</label>
+                      <%= select_tag "motor[make]", options_for_select(Motor::MOTOR_MAKE), id: 'motorMake', class: 'selectpicker', prompt: 'Select Make' %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                      <label for="motorModel">Model</label>
+                      <%= select_tag "motor[model]", options_for_select([]), id: 'motorModel', class: 'selectpicker', prompt: 'Select Model' %>
+                      <div class="form-control-border"></div>
+                    </div>
+                  </div>
+                  <%= prepare_select_field('trim') %>
+                  <%= prepare_select_field('body_type') %>
+                  <%= prepare_select_field('make_year') %>
+                  <%= prepare_select_field('mileage') %>
+                  <%= prepare_select_field('engine_size') %>
+                  <%= prepare_select_field('fuel_type') %>
+                  <%= prepare_select_field('acceleration') %>
+                  <%= prepare_select_field('top_speed') %>
+                  <%= prepare_select_field('co2_emissions') %>
+                  <%= prepare_select_field('fuel_consumption') %>
+                  <%= prepare_select_field('gearbox') %>
+                </div>
+              </div>
+              <div class="tags-container">
+                <ul class="tags-list">
+                  <li class="tag">
+                    <span>Mercedes-benz CLK</span>
+                    <a href="#" class="remove-btn">
+                      <i class="zmdi zmdi-close"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content-block">
+              <%= render partial: 'entities/upload_photos_and_videos_section', locals: { type: 'motor' } %>
+            </div>
+            <div class="content-block">
+              <div class="block-header">
+                <h4>Aditional Details</h4>
+              </div>
+              <div class="block-body">
+                <span class="description">Motor description</span>
+                <div class="form-group">
+                  <textarea name="motor[profile_attributes][about]" id="motorDescription" cols="30" rows="4" class="form-control">
+                  </textarea>
+                  <span class="form-control-border"></span>
+                </div>
+              </div>
+            </div>
+            <div class="buttons-block">
+              <div class='hidden_images hidden'></div>
+              <%= submit_tag "Post motor", class: 'btn btn-primary btn-block' %>
+            </div>
+          </div>
+          <%= render partial: 'sidebar_nav' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

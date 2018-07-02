@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'Conv_Latinotype - Texta-Heavy_0';
+  src: font-url('Latinotype-Texta-Heavy_0.eot');
+  src: local('☺'), font-url('Latinotype-Texta-Heavy_0.woff') format('woff'), 
+        font-url('Latinotype-Texta-Heavy_0.ttf') format('truetype'), 
+        font-url('Latinotype-Texta-Heavy_0.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_Latinotype - Texta-Medium_0';
+  src: font-url('Latinotype-Texta-Medium_0.eot');
+  src: local('☺'), font-url('Latinotype-Texta-Medium_0.woff') format('woff'),
+        font-url('Latinotype-Texta-Medium_0.ttf') format('truetype'), 
+        font-url('Latinotype-Texta-Medium_0.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_Latinotype - Texta-Bold_0';
+  src: font-url('Latinotype-Texta-Bold_0.eot');
+  src: local('☺'), font-url('Latinotype-Texta-Bold_0.woff') format('woff'), 
+        font-url('Latinotype-Texta-Bold_0.ttf') format('truetype'), 
+        font-url('Latinotype-Texta-Bold_0.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_ProximaNova-Regular';
+  src: font-url('ProximaNova-Regular.eot');
+  src: local('☺'), font-url('ProximaNova-Regular.woff') format('woff'), 
+        font-url('ProximaNova-Regular.ttf') format('truetype'), 
+        font-url('ProximaNova-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_ProximaNova-Semibold';
+  src: font-url('ProximaNova-Semibold.eot');
+  src: local('☺'), font-url('ProximaNova-Semibold.woff') format('woff'), 
+        font-url('ProximaNova-Semibold.ttf') format('truetype'), 
+        font-url('ProximaNova-Semibold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_ProximaNova-RegularItalic';
+  src: font-url('ProximaNova-RegularItalic.eot');
+  src: local('☺'), font-url('ProximaNova-RegularItalic.woff') format('woff'), 
+        font-url('ProximaNova-RegularItalic.ttf') format('truetype'), 
+        font-url('ProximaNova-RegularItalic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Conv_ProximaNova-Bold';
+  src: font-url('ProximaNova-Bold.eot');
+  src: local('☺'), font-url('ProximaNova-Bold.woff') format('woff'), 
+        font-url('ProximaNova-Bold.ttf') format('truetype'), 
+        font-url('ProximaNova-Bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'Avenir Next Cyr Medium';
+    src: font-url('AvenirNextCyr-Medium.eot');
+    src: font-url('AvenirNextCyr-Medium.eot?#iefix') format('embedded-opentype'),
+        font-url('AvenirNextCyr-Medium.woff') format('woff'),
+        font-url('AvenirNextCyr-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

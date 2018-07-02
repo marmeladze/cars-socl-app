@@ -1,0 +1,54 @@
+<div class="tab-pane fade" id="attendees" role="tabpanel" aria-labelledby="attendeesTab">
+  <div class="main-container">
+    <%= render partial: 'events/sidebar_container' %>
+    <div class="content-container mobile-order-1">
+      <div class="content-block">
+        <div class="block-header">
+          <h4 class="with-icon"><i class="zmdi zmdi-account"></i>Attendees</h4>
+        </div>
+        <div class="block-body">
+          <div class="content-items-list full-width">
+            <% if @event.admin_users.include?(current_user) %>
+              <% @event.invitations.pending.each do |invitation| %>
+                <% attendee = invitation.user %>
+                <div class="item">
+                  <%= link_to profile_user_path(attendee), class: 'avatar-container', target: '_blank' do %>
+                    <%= image_tag attendee.thumb_url, alt: '' %>
+                  <% end %>
+                  <div class="info">
+                    <%= link_to attendee.display_name, profile_user_path(attendee), class: 'title', target: '_blank' %>
+                    <span class="location"><i class="zmdi zmdi-pin"></i><span><%= attendee.city %></span></span>
+                  </div>
+                  <div class="buttons-container">
+                    <% if invitation.invited == true %>
+                      <a href='javascript:void(0)' class='btn btn-primary btn-follow'><span>Invited</span></a>
+                    <% else %>
+                      <%= link_to accept_request_event_path(id: @event.id, attendee_id: attendee.id), method: :put, class: 'btn btn-primary btn-follow' do %>
+                        <span>Accept</span>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+
+            <% @event.attendees.each do |attendee| %>
+              <div class="item">
+                <%= link_to profile_user_path(attendee), class: 'avatar-container', target: '_blank' do %>
+                  <%= image_tag attendee.thumb_url, alt: '' %>
+                <% end %>
+                <div class="info">
+                  <%= link_to attendee.display_name, profile_user_path(attendee), class: 'title', target: '_blank' %>
+                  <span class="location"><i class="zmdi zmdi-pin"></i><span><%= attendee.city %></span></span>
+                </div>
+                <div class="buttons-container">
+                  <a href="#" class="btn btn-primary btn-follow"><span>Attending</span></a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

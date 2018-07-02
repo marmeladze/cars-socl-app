@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 main-container">
+      <div class="sidebar-container mobile-hidden">
+        <%= render partial: 'users/owned_vehicles' %>
+        <%= render partial: 'events/index' %>
+        <%= render partial: 'companies/recommonded' %>
+        <%= render partial: 'groups/recommonded' %>
+        <%= render partial: 'shared/sidebar_footer' %>
+      </div>
+      <div class="content-container">
+        <div class="content-block page-title">
+          <div class="title-container">
+            <h3>Newsfeed</h3>
+              <div class="filters-container full-width">
+                <span class="styled-togglebox">
+                  <input type="checkbox" id="trendingToggle">
+                  <label for="trendingToggle">
+                    <span>Trending</span>
+                    <span class="togglebox"></span>
+                  </label>
+                </span>
+                <span class="styled-togglebox">
+                  <input type="checkbox" id="myContentToggle">
+                  <label for="myContentToggle">
+                    <span>My content</span>
+                    <span class="togglebox"></span>
+                  </label>
+                </span>
+              </div>
+            </div>
+            <div class="tabs-container page-control-tabs">
+              <ul class="nav nav-tabs content-tabs justify-content-center" id="NewsfeedTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="allPostsTab" data-toggle="tab" href="#allPosts" role="tab" aria-controls="all-posts" aria-expanded="true">All posts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="photosTab" data-toggle="tab" href="#photos" role="tab" aria-controls="photos">Photos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="videosTab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos">Videos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="blogsTab" data-toggle="tab" href="#blogs" role="tab" aria-controls="blogs">Blogs</a>
+                </li>
+              </ul>
+              <div class="select-container">
+                <span class="label">Show on page:</span>
+                <select class="selectpicker" id="pageControlTabs">
+                  <option data-tokens="1" value="allPosts">All Posts</option>
+                  <option data-tokens="2" value="photos">Photos</option>
+                  <option data-tokens="3" value="videos">Videos</option>
+                  <option data-tokens="4" value="blogs">Blogs</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="allPosts" role="tabpanel" aria-labelledby="allPostsTab">
+              <div class="content-container mobile-order-1">
+                <%= render partial: 'posts/add_post', locals: {target: '#allPosts .mobile-order-3'} %>
+              </div>
+              <div class="content-container mobile-order-3">
+                <%= render partial: 'posts/index', locals: { posts: current_user.posts } %>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="photosTab">
+              <div class="content-container mobile-order-3">
+                <%= render partial: 'posts/index', locals: { posts: current_user.photo_posts } %>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videosTab">
+              <div class="content-container mobile-order-3">
+                <%= render partial: 'posts/index', locals: { posts: current_user.video_posts } %>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="blogs" role="tabpanel" aria-labelledby="blogsTab">
+              <div class="content-container details mobile-order-3">
+                <%= render partial: 'posts/index', locals: { posts: current_user.blog_posts } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

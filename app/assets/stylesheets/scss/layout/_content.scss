@@ -1,0 +1,38 @@
+.content-container {
+  & > .buttons-block {
+    margin-bottom: 30px;
+  }
+}
+
+@media all and (max-width: 1100px) {
+  .content-container {
+    .content-block{
+      .title-container {
+        flex-wrap: wrap;
+
+        h3 {
+          width: 100%;
+          flex: none;
+          margin-bottom: 10px;
+        }
+        .filters-container {
+          width: 65px;
+          flex: none;
+
+          &.full-width {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .content-container  {
+    & > h4 {
+      margin-top: 20px;
+      padding-left: 15px;
+    }
+  }
+}

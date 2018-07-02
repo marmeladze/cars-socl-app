@@ -1,0 +1,30 @@
+<div class="widget collapsible-widget manage_admins_widget" data-entity-type='<%= type %>'>
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-account-calendar"></i><%= type.capitalize %> Admins</span>
+  </div>
+  <div class="widget-body">
+    <div class="widget-items-list">
+      <% unless entity.new_record? %>
+        <% entity.admin_users.each do |user| %>
+          <div class="item boxed-item">
+            <span class="avatar-container">
+              <%= image_tag(user.thumb_url, class: 'avatar-img', alt: '') %>
+            </span>
+            <div class="info-container">
+              <%= link_to user.display_name, user_path(user.id), class: 'item-title', target: '_blank' %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <% if entity.new_record? %>
+      <div class="buttons-container mt-20">
+        <div data-toggle="modal" data-target="#manageAdmins" class="btn btn-primary btn-block btn-small"><span>Manage admins</span></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :footer_content do %>
+  <%= render partial: 'entities/manage_admins_modal' %>
+<% end %>

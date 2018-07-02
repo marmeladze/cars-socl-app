@@ -1,0 +1,38 @@
+.registration-number-container {
+  display: flex;
+  border: 1px solid #5b5b60;
+  border-radius: 4px;
+
+  .country-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33px;
+    flex: 0 0 33px;
+    border-right: 1px solid #5b5b60;
+    background-color: #002284;
+    border-radius: 4px 0 0 4px;
+
+    span {
+      font: {
+        family: $base-font-family-proxima-nova-semibold;
+        size: 10px;
+      };
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+  .input-field {
+    width: 100%;
+    flex: 1 1 100%;
+    background-color: #feec30;
+    border-radius: 0 4px 4px 0;
+
+    .form-control {
+      background-color: transparent;
+      height: 50px;
+      line-height: 50px;
+      padding: 14px 10px 10px;
+    }
+  }
+}

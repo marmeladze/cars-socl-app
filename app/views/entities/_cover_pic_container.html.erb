@@ -1,0 +1,39 @@
+<div class="cover-image-container sm-title">
+    <% if current.nil? %>
+      <div class="cover-image-wrapper" style="background-image: url('../assets/cover-image5.jpg')">
+    <% else %>
+      <div class="cover-image-wrapper" style="background-image: url('<%= current.cover_pic.url %>')">
+    <% end %>
+    <div class="overlay"></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="profile-page-heading">
+          <div class="user-profile-info">
+            <%= file_field_tag "#{type}[profile_attributes][cover_pic]", class: 'hidden', id: "#{type}_cover_pic", 'data-behavior': 'update_placeholder', 'data-reference': '.cover-image-wrapper', 'data-update-style': 'true' %>
+            <label for='<%= type %>_cover_pic'>
+              <span class="change-cover-image-btn btn btn-primary">
+                <span>Change cover</span>
+              </span>
+            </label>
+            <div class="avatar-container" id='avatar_image_container'>
+              <img class="avatar-img" src="<%= current&.thumb_url || '../assets/avatars/default_avatar.png' %>" alt="">
+              <%= file_field_tag "#{type}[profile_attributes][avatar]", class: 'hidden', id: "#{type}_avatar", 'data-behavior': 'update_placeholder', 'data-reference': '#avatar_image_container' %>
+              <label for='<%= type %>_avatar'>
+                <span class="add-avatar">
+                  <i class="zmdi zmdi-camera-add"></i>
+                </span>
+              </label>
+            </div>
+            <div class="title-container">
+              <input type="text" name="<%= type %>[profile_attributes][name]" value='<%= "#{current&.name}"  %>' placeholder="Enter <%= type.capitalize %> Name" class="form-control" />
+              <span class="description">e.g. <%= example_text(type) %></span>
+              <a href="#" class="text-edit-btn"><i class="zmdi zmdi-edit"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

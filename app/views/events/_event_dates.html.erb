@@ -1,0 +1,12 @@
+<div class="widget">
+  <div class="widget-header d-flex flex-row justify-content-between">
+    <span class="title with-icon"><i class="zmdi zmdi-calendar-check"></i>Event date</span>
+    <span class="selected-date">
+      <span><%= @event.display_date %></span>
+      <%= hidden_field_tag 'event[event_date]', nil %>
+    </span>
+  </div>
+  <div class="widget-body calendar-wrapper">
+    <div class='date_picker' data-behavior='date_picker'></div>
+  </div>
+</div>

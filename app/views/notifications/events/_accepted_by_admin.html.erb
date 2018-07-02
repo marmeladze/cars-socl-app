@@ -1,0 +1,28 @@
+<% args = notification.args %>
+<% if local_assigns[:header].present? %>
+  <div class="notification-item <%= new_notification_klass(notification.id.to_s) %>">
+    <div class="avatar-container">
+      <%= image_tag args['event_thumb_url'], class: 'avatar-img', alt: '' %>
+    </div>
+    <div class="notification-content">
+      <span class="title">
+        <%= link_to args['admin_name'], profile_user_path(args['admin_id']) %>
+        <span class="date"><%= time_ago_in_words(notification.created_at) %> ago</span>
+      </span>
+      <span class="description">Accepted your request to join <%= link_to args['event_name'], event_path(args['event_id']), class: 'title', target: '_blank' %> event.</span>
+    </div>
+  </div>
+<% else %>
+  <div class="notification-item">
+    <a href="#" class="avatar-container">
+      <%= image_tag args['event_thumb_url'], class: 'avatar-img', alt: '' %>
+    </a>
+    <div class="info-container">
+      <span class="info">
+        Your request to attend &nbsp;
+        <%= link_to args['event_name'], event_path(args['event_id']), class: 'title' %> event has been accepted by the admin.
+      </span>
+      <span class="notice"><%= time_ago_in_words(notification.created_at) %> ago</span>
+    </div>
+  </div>
+<% end %>

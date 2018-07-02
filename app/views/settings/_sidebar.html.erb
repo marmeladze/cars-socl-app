@@ -1,0 +1,40 @@
+<div class="sidebar-container left-sidebar mobile-show">
+  <div class="widget">
+    <div class="widget-body">
+      <div class="tabs-container">
+        <ul class="menu secondary-menu nav">
+          <li>
+            <%= link_to account_settings_path, class: settings_active_klass('account') do %>
+              <i class="ion-icon ion-android-person"></i>
+              <span>Account settings</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to security_settings_path, class: settings_active_klass('security') do %>
+              <i class="ion-icon ion-android-lock"></i>
+              <span>Security</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to notifications_settings_path, class: settings_active_klass('notifications') do %>
+              <i class="ion-icon ion-android-notifications"></i>
+              <span>Notifications</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to privacy_settings_path, class: settings_active_klass('privacy') do %>
+              <i class="ion-icon ion-eye"></i>
+              <span>Privacy settings</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(destroy_user_session_path, method: :delete) do %>
+              <i class="ion-icon ion-log-out"></i>
+              <span>Log out</span>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

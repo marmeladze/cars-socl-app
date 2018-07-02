@@ -1,0 +1,10 @@
+<div class="content-container mobile-order-1">
+  <div class="buttons-block">
+    <%= link_to '#', class: 'btn btn-primary btn-block', 'data-behavior': 'load_blog_form', "data-form-url" => '/publish/blog_post', 'data-target': '#blogs .content-container' do %>
+      <span>Add new blog</span>
+    <% end %>
+  </div>
+  <div class='content-container details'>
+    <%= render partial: 'posts/index', locals: { posts: @user.blog_posts } %>
+  </div>
+</div>

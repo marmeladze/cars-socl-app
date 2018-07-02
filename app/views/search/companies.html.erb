@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="main-container">
+        <%= render partial: 'search/advanced_search/companies' %>
+        <%= render partial: 'search/search_box_container', locals: { form_action: companies_search_path} %>  
+        <div class="content-container mobile-order-3">
+          <div class="content-block">
+            <div class="block-header">
+              <h4 class="with-icon"><i class="zmdi zmdi-city"></i>Company</h4>
+              <a href="#" class="link">See all</a>
+            </div>
+            <div class="block-body">
+              <div class="content-items-list full-width">
+                <% @results.each do |company| %>
+                  <div class="item">
+                    <%= link_to company_path(company.id), class: 'avatar-container', target: '_blank' do %>
+                      <%= image_tag company.thumb_url, alt: '' %>
+                    <% end %>
+                    <div class="info">
+                      <%= link_to company.name, company_path(company.id), class: 'title', target: '_blank' %>
+                      <span class="location"><i class="zmdi zmdi-pin"></i><span><%= company.city %></span></span>
+                    </div>
+                    <div class="buttons-container">
+                      <% if current_user.follow_company?(company) %>
+                        <%= link_to unfollow_company_follow_index_path(id: company.id), method: :post, target: '_blank', class: 'btn btn-primary btn-follow' do %>
+                          <span>UnFollow</span>
+                        <% end %>
+                      <% else %>
+                        <%= link_to company_follow_index_path(id: company.id), method: :post, target: '_blank', class: 'btn btn-primary btn-follow' do %>
+                          <span>Follow</span>
+                        <% end %>
+                      <% end %>
+                      <a href="#" class="btn btn-secondary btn-more"><i class="zmdi zmdi-more"></i></a>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="block-footer">
+              <a href="#" class="more-block-btn"><i class="zmdi zmdi-more"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

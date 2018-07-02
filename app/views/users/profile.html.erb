@@ -1,0 +1,61 @@
+<div class="cover-image-container">
+  <div class="cover-image-wrapper" style="background-image: url('<%= cover_pic_url(@user) %>')">
+    <div class="overlay"></div>
+  </div>
+  <div class="container">
+    <%= render partial: 'users/profile_stats' %>
+  </div>
+</div>
+
+<div class='container'>
+  <div class='row'>
+    <div class='col-12'>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="aboutTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'sidebar_container' %>
+            <%= render partial: 'about_container' %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade show active" id="allPosts" role="tabpanel" aria-labelledby="allPostsTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'sidebar_container' %>
+            <%= render partial: 'all_posts_container' %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="photosTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'photos_container', locals: { photos: @user.photos } %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videosTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'videos_container' %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="blogs" role="tabpanel" aria-labelledby="blogsTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'sidebar_container' %>
+            <%= render partial: 'blogs_container' %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="motorGarage" role="tabpanel" aria-labelledby="motorGarageTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'garage_container', locals: { title: 'Motor Garage', motors: @user.motors } %>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="dreamGarage" role="tabpanel" aria-labelledby="dreamGarageTab" aria-expanded="false">
+          <div class="main-container">
+            <%= render partial: 'garage_container', locals: { title: 'Dream Garage', motors: @user.dream_garage.motors } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

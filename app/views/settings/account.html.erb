@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 main-container">
+      <%= render partial: 'sidebar' %>
+      <div class="content-container">
+        <%= render partial: 'settings/errors' %>
+        <div class="content-block settings-block">
+          <div class="block-body">
+            <div class="user-profile-info">
+              <div class="avatar-container">
+                <%= image_tag current_user.thumb_url, class: 'avatar-img' %>
+              </div>
+              <div class="profile-info">
+                <span class="user-name">Kevin Carr</span>
+                <span class="badge badge-info">Full Member</span>
+              </div>
+            </div>
+            <div class="account-progress">
+              <h4>User Status</h4>
+              <div class="account-progress-container">
+                <div class="progress-section first-section earned">
+                  <div class="progress-item first-item earned">
+                    <span class="points">100 points</span>
+                    <div class="pointer"></div>
+                    <span class="membership">New Member</span>
+                  </div>
+                  <div class="progress-item second-item earned">
+                    <span class="points">1000 points</span>
+                    <div class="pointer"></div>
+                    <span class="membership">Junior Member</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-line"><span class="counter"></span><div class="current-marker"></div></div>
+                  </div>
+                </div>
+                <div class="progress-section second-section earned">
+                  <div class="progress-item third-item earned">
+                    <span class="points">2500 points</span>
+                    <div class="pointer"></div>
+                    <span class="membership">Full Member</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-line"><span class="counter"></span><div class="current-marker"></div></div>
+                  </div>
+                </div>
+                <div class="progress-section third-section current">
+                  <div class="progress-item fourth-item">
+                    <span class="points">5000 points</span>
+                    <div class="pointer"></div>
+                    <span class="membership">Senior Member</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-line" style="width: 60%"><span class="counter">3800</span><div class="current-marker"></div></div>
+                  </div>
+                </div>
+                <div class="progress-section fourth-section">
+                  <div class="progress-item fifth-item">
+                    <span class="points">10000 points</span>
+                    <div class="pointer"></div>
+                    <span class="membership">Elite Member</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-line"><span class="counter"></span><div class="current-marker"></div></div>
+                  </div>
+                </div>
+              </div>
+              <span class="progress-description"><span>NOTE:</span> We will give you a point for every reBrag, page view or wreath you achieve.</span>
+            </div>
+          </div>
+        </div>
+        <div class="content-block settings-block">
+          <div class="block-body">
+            <h4>Acconunt settings</h4>
+            <%= form_tag(account_settings_path, method: :post, class: 'form content-form', id: 'account_settings_form') do %>
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <div class="form-group inline-radio">
+                    <label>Know me by:</label>
+                    <div class="styled-checkbox">
+                      <%= radio_button_tag 'user[known_by]', 'username', current_user.known_by.eql?('username') %>
+                      <label for="user_known_by_username">
+                        <span class="checkbox"></span>
+                        <span class="title">Name</span>
+                      </label>
+                    </div>
+                    <div class="styled-checkbox">
+                      <%= radio_button_tag 'user[known_by]', 'name', current_user.known_by.eql?('name') %>
+                      <label for="user_known_by_name">
+                        <span class="checkbox"></span>
+                        <span class="title">Username</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="userName">Name</label>
+                    <%= text_field_tag 'user[name]', current_user.name, placeholder: 'Type Name', class: 'form-control' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="userUsername">Username</label>
+                    <%= text_field_tag 'user[username]', current_user.username, placeholder: 'Type Username', class: 'form-control' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="userEmail">Email address</label>
+                    <input id="userEmail" type="text" class="form-control" placeholder="Type Email" value="<%= current_user.email %>" readonly>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_country_code">Select Country</label>
+                    <%= select_tag "user[country_code]", options_for_select(countries_list, current_user.country_code), class: 'selectpicker', prompt: 'Select Country', 'data-behavior': 'update_states' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_state_code">Select State</label>
+                    <%= select_tag "user[state_code]", options_for_select([current_user.state], current_user.state), class: 'selectpicker', prompt: 'Select State', 'data-behavior': 'update_cities', disabled: true %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_state">Select City</label>
+                    <%= select_tag "user[city]", options_for_select([current_user.city], current_user.city), class: 'selectpicker', prompt: 'Select City', disabled: true %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+              </div>
+              <%= hidden_field_tag 'user[country]', current_user.country %>
+              <%= hidden_field_tag 'user[state]', current_user.state %>
+              <%= submit_tag "Save changes", class: 'btn btn-primary btn-block' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

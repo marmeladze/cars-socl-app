@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 main-container">
+      <%= render partial: 'sidebar' %>
+      <div class="content-container">
+        <%= render partial: 'settings/errors' %>
+        <div class="content-block settings-block">
+          <div class="block-body">
+            <h4>Change Password</h4>
+            <%= form_tag(security_settings_path, method: :post, class: 'form content-form', id: 'security_settings_form') do %>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_current_password">Current password</label>
+                    <%= password_field_tag 'user[current_password]', '', class: 'form-control', placeholder: 'Enter current password' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_password">New password</label>
+                    <%= password_field_tag 'user[password]', '', class: 'form-control', placeholder: 'Enter new password' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_password_confirmation">Repeat password</label>
+                    <%= password_field_tag 'user[password_confirmation]', '', class: 'form-control', placeholder: 'Repeat new password' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+              </div>
+              <h4>Legacy Contact</h4>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_legacy_contact_name">Contact person name</label>
+                    <%= text_field_tag 'user[legacy_contact_name]', current_user.legacy_contact_name, class: 'form-control', placeholder: 'Enter legacy contact name' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="user_legacy_contact_email">Contact person email</label>
+                    <%= text_field_tag 'user[legacy_contact_email]', current_user.legacy_contact_email, class: 'form-control', placeholder: 'Enter legacy contact email address' %>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="block-footer">
+                <%= submit_tag "Save changes", class: 'btn btn-primary btn-block' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="content-block settings-block">
+          <div class="block-body">
+            <h4>Deactivate Account?</h4>
+            <form action="" class="form content-form">
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="deactivateAccount">Select one reason from below</label>
+                    <select class="selectpicker" id="deactivateAccount">
+                      <option data-tokens="reason0">Select reason</option>
+                      <option data-tokens="reason1">Reason 1</option>
+                    </select>
+                    <div class="form-control-border"></div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <a href="#" class="btn btn-primary btn-block"><span>Save changes</span></a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.header {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  @include gradient-background(#fd674e, #f02836);
+
+  .header-container {
+    display: flex;
+    align-items: stretch;
+    height: 70px;
+
+    .navbar-brand {
+      margin: auto auto auto 0;
+      display: flex;
+
+      svg {
+        margin: auto;
+      }
+
+    }
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin: 0 30px;
+
+      .search-btn {
+        font-size: 22px;
+        line-height: 22px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .header {
+    .header-container {
+      padding: {
+        left: 15px;
+        right: 15px;
+      };
+      height: 58px;
+
+      .search-container {
+        margin: 0 20px;
+      }
+      .navbar-brand {
+
+      }
+    }
+  }
+}

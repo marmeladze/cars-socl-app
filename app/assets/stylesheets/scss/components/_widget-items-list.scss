@@ -1,0 +1,128 @@
+.widget-items-list {
+  margin-top: 5px;
+
+  .item {
+
+    &.boxed-item {
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      border-radius: 2px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0);
+      text-decoration: none;
+      transition: all .5s 0s;
+
+      &:hover {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .2);
+      }
+    }
+
+    .avatar-container {
+      width: 45px;
+      height: 45px;
+      margin: 0 15px 0 0;
+      border: none;
+    }
+    .info-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      & > a, & > span {
+        display: inline-block;
+        width: 100%;
+      }
+
+      a {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 14px;
+        };
+        color: #ed1f24;
+
+        &.item-title {
+          font: {
+            family: $base-font-family-proxima-nova-semibold;
+            size: 16px;
+          };
+          color: #ed1f24;
+          line-height: 18px;
+          margin-bottom: 2px;
+        }
+      }
+      span {
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+
+        &.item-description {
+          font: {
+            family: $base-font-family-proxima-nova-regular;
+            size: 14px;
+          };
+          color: #3c3c3c;
+          line-height: 16px;
+
+          & > span {
+            color: #ed1f24;
+          }
+        }
+        &.item-location {
+          color: #bababa;
+          font: {
+            family: $base-font-family-proxima-nova-regular;
+            size: 14px;
+          };
+          line-height: 16px;
+
+          .zmdi {
+            margin-right: 5px;
+          }
+        }
+        &.item-status {
+          font: {
+            size: 14px;
+            family: $base-font-family-proxima-nova-regular;
+          }
+          color: #3c3c3c;
+        }
+      }
+    }
+  }
+
+  &.list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      position: relative;
+      padding: 0 15px 0 45px;
+
+      p {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 14px;
+        };
+        color: #3c3c3c;
+        line-height: 18px;
+        margin-bottom: 10px;
+
+        a {
+          font-family: $base-font-family-proxima-nova-semibold;
+          color: #ed1f24;
+        }
+      }
+
+      .zmdi {
+        font-size: 21px;
+        color: #ed1f24;
+        @include position-abs-t-l(0, 10px);
+      }
+    }
+  }
+  &.mb-10 {
+    margin-bottom: 10px;
+  }
+}

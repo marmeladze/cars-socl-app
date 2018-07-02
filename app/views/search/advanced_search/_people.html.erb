@@ -1,0 +1,68 @@
+<div class="sidebar-container mobile-order-2">
+  <div class="widget collapsible-widget">
+    <div class="widget-header type-2">
+      <span class="title">Advanced Search</span>
+    </div>
+    <div class="widget-body">
+      <%= form_tag(people_search_path, class: 'form content-form', method: :get, id: 'advanced_search_form') do %>
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">Username</label>
+              <input type=text name='username' value='<%= params[:username] %>' class="form-control" placeholder="Username" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">User Email</label>
+              <input type=text name='email' value='<%= params[:email] %>' class="form-control" placeholder="User Email" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">Full Name</label>
+              <input type=text name='name' value='<%= params[:name] %>' class="form-control" placeholder="Full Name" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">City</label>
+              <input type=text name='city' value='<%= params[:city] %>' class="form-control" placeholder="City" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+
+          <!-- <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">State</label>
+              <input type=text name='state' value='<%#= params[:state] %>' class="form-control" placeholder="State" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">Country</label>
+              <input type=text name='country' value='<%#= params[:country] %>' class="form-control" placeholder="Country" />
+              <div class="form-control-border"></div>
+            </div>
+          </div> -->
+        </div>
+        <%= hidden_field_tag 'advanced_search', true, class: 'hidden' %>
+        <%= submit_tag 'search', class: 'hidden', id: 'advanced_searc_form_submit' %>
+      <% end %>
+    </div>
+    <div class="widget-footer">
+      <div class="buttons-container mt-20">
+        <a href="#" class="btn btn-primary btn-block" data-behavior='trigger_click' data-target='advanced_searc_form_submit'><span>Search now</span></a>
+      </div>
+    </div>
+  </div>
+  <%= render partial: 'shared/sidebar_footer' %>
+</div>

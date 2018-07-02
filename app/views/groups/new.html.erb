@@ -1,0 +1,36 @@
+<%= form_tag(groups_path, method: :post, multipart: true, class: 'form content-form', id: 'new_group', remote: true) do %>
+  <%= render partial: 'entities/cover_pic_container', locals: { type: 'group', current: nil } %>
+  <div class='container error'></div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="main-container">
+          <%= render partial: 'groups/sidebar_container' %>
+          <div class="content-container mobile-order-1">
+            <div class="content-block">
+              <div class="block-header">
+                <h4>About Group</h4>
+              </div>
+              <div class="block-body">
+                <span class="description">Group details</span>
+                <div class="form-group">
+                  <%= text_area_tag 'group[profile_attributes][about]', '', class: 'form-control', rows: 4, cols: 30 %>
+                  <span class="form-control-border"></span>
+                </div>
+              </div>
+            </div>
+            <%= render partial: 'entities/categories_block', locals: { type: 'group', current: nil } %>
+          </div>
+          <div class="content-container mobile-order-3">
+            <%= render partial: 'entities/upload_photos_and_videos_section', locals: { type: 'group', current: nil } %>
+            <div class="buttons-block">
+              <div class='hidden_images hidden'></div>
+              <%= submit_tag "Create Group", class: 'btn btn-primary btn-block' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

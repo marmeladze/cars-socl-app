@@ -1,0 +1,36 @@
+<div class="sidebar-container mobile-order-2">
+  <div class="widget collapsible-widget">
+    <div class="widget-header type-2">
+      <span class="title">Advanced Search</span>
+    </div>
+    <div class="widget-body">
+      <%= form_tag(companies_search_path, class: 'form content-form', method: :get, id: 'advanced_search_form') do %>
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">Name</label>
+              <input type=text name='name' value='<%= params[:name] %>' class="form-control" placeholder="Name of the company" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+              <label for="motorCategory">Address/City</label>
+              <input type=text name='address' value='<%= params[:address] %>' class="form-control" placeholder="City or Address" />
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+        </div>
+        <%= hidden_field_tag 'advanced_search', true, class: 'hidden' %>
+        <%= submit_tag 'search', class: 'hidden', id: 'advanced_searc_form_submit' %>
+      <% end %>
+    </div>
+    <div class="widget-footer">
+      <div class="buttons-container mt-20">
+        <a href="#" class="btn btn-primary btn-block" data-behavior='trigger_click' data-target='advanced_searc_form_submit'><span>Search now</span></a>
+      </div>
+    </div>
+  </div>
+  <%= render partial: 'shared/sidebar_footer' %>
+</div>

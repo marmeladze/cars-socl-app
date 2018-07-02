@@ -1,0 +1,47 @@
+        <% if current %>
+          <% current.categories.each_with_index do |ent, idx| %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="motor_category">Motor category</label>
+                <%= select_tag "#{type}[categories_attributes][][name]", options_for_select(Motor::MOTOR_CATEGORIES, default_value_for(ent, :name)), class: 'selectpicker' %>
+                <div class="form-control-border"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="motor_make">Make</label>
+                <%= select_tag "#{type}[categories_attributes][][make]", options_for_select(Motor::MOTOR_MAKE, default_value_for(ent, :make)), class: 'selectpicker', prompt: 'Select Make' %>
+                <div class="form-control-border"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group mb-0">
+                <label for="motorModel">Motor Model</label>
+                <%= select_tag "#{type}[categories_attributes][][model]", options_for_select(Motor::options_for(:model), default_value_for(ent, :model)), class: 'selectpicker', prompt: 'Select Model' %>
+                <div class="form-control-border"></div>
+              </div>
+            </div>  
+          <% end %>
+        <% else %>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="motor_category">Motor category</label>
+              <%= select_tag "#{type}[categories_attributes][][name]", options_for_select(Motor::MOTOR_CATEGORIES), class: 'selectpicker', prompt: 'Select Category' %>
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="motor_make">Make</label>
+              <%= select_tag "#{type}[categories_attributes][][make]", options_for_select(Motor::MOTOR_MAKE, default_value_for(current, :make)), class: 'selectpicker', prompt: 'Select Make' %>
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-0">
+              <label for="motorModel">Motor Model</label>
+              <%= select_tag "#{type}[categories_attributes][][model]", options_for_select(Motor::options_for(:model), default_value_for(current, :model)), class: 'selectpicker', prompt: 'Select Model' %>
+              <div class="form-control-border"></div>
+            </div>
+          </div>
+        <% end %>

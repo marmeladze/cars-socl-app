@@ -1,0 +1,25 @@
+h3 {
+  font: {
+    size: 34px;
+    family: $base-font-family-proxima-nova-regular;
+  };
+  color: #3c3c3c;
+}
+h4 {
+  font: {
+    size: 28px;
+    family: $base-font-family-proxima-nova-regular;
+  };
+  color: #3c3c3c;
+}
+a {
+  font: {
+    family: $base-font-family-proxima-nova-semibold;
+    size: 16px;
+  };
+  color: #ed1f24;
+
+  &:hover {
+    color: #ed1f24;
+  }
+}

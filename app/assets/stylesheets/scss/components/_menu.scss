@@ -1,0 +1,117 @@
+.menu {
+
+  &.secondary-menu {
+    margin: 0;
+    padding: 5px 20px;
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      padding: 9px 0 9px 40px;
+
+      a {
+        font: {
+          size: 13px;
+          family: $base-font-family-texta-heavy;
+        };
+        color: #818181;
+        text-transform: uppercase;
+        line-height: 22px;
+        text-decoration: none;
+
+        .ion-icon {
+          width: 23px;
+          display: inline-block;
+          text-align: center;
+          font-size: 22px;
+          left: 0;
+          @include position-abs-v-center;
+        }
+
+        &.active {
+          color: #ed1f24;
+        }
+      }
+    }
+  }
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  transform: translateY(100%);
+  transition: all .5s 0s;
+  padding: 10px 0;
+  box-shadow: 0 -3px 2px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: stretch;
+
+    li {
+      flex: 1 1 100%;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 44px;
+        color: #f02836;
+        font-size: 34px;
+        opacity: 0.5;
+        transition: all .5s 0s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .dropdown {
+
+        .dropdown-toggle:after {
+          display: none;
+        }
+
+        .dropdown-menu {
+          width: 100%;
+          transform: translate3d(0px, calc(-100% - 10px), 0px) !important;
+
+          .dropdown-body {
+            a {
+              text-align: left;
+              justify-content: flex-start;
+            }
+          }
+
+          &:after {
+            display: none;
+            transform: rotate(180deg) translateY(-100%);
+            bottom: 0;
+            top: auto;
+          }
+        }
+      }
+      &.active {
+        a {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .mobile-menu {
+    display: block;
+    transform: translateY(0);
+  }
+}

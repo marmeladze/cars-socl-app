@@ -1,0 +1,139 @@
+i {
+  display: inline-block;
+  background: {
+    position: center;
+    repeat: no-repeat;
+  };
+
+  &.i-more {
+    width: 5px;
+    height: 18px;
+    background-image: url($icon-path + 'i-more.png');
+
+    &.horizontal {
+      width: 17px;
+      height: 6px;
+      background-image: url($icon-path + 'i-more-h.png');
+    }
+  }
+  &.i-bell {
+    width: 16px;
+    height: 19px;
+    background-image: url($icon-path + 'i-bell.png');
+  }
+  &.i-user {
+    width: 29px;
+    height: 16px;
+    background-image: url($icon-path + 'i-person.png');
+  }
+  &.i-search {
+    width: 17px;
+    height: 17px;
+    background-image: url($icon-path + 'i-search.png');
+  }
+  &.i-owned-vehicle {
+    width: 19px;
+    height: 23px;
+    background-image: url($icon-path + 'i-owned-vehicle.png');
+  }
+  &.i-calendar {
+    width: 19px;
+    height: 22px;
+    background-image: url($icon-path + 'i-calendar.png');
+  }
+  &.i-building {
+    width: 19px;
+    height: 20px;
+    background-image: url($icon-path + 'i-building.png');
+  }
+  &.i-users-group {
+    width: 21px;
+    height: 16px;
+    background-image: url($icon-path + 'i-users-group.png');
+  }
+  &.i-pin {
+    width: 15px;
+    height: 22px;
+    background-image: url($icon-path + 'i-pin.png');
+  }
+  &.i-camera {
+    width: 21px;
+    height: 20px;
+    background-image: url($icon-path + 'i-camera.png');
+  }
+  &.i-video {
+    width: 21px;
+    height: 15px;
+    background-image: url($icon-path + 'i-video.png');
+  }
+  &.i-settings-gray {
+    width: 5px;
+    height: 18px;
+    background-image: url($icon-path + 'i-settings-gray.png');
+  }
+  &.i-wreath {
+    width: 19px;
+    height: 16px;
+    background-image: url($icon-path + 'i-wreath.png');
+  }
+  &.i-shared {
+    width: 16px;
+    height: 17px;
+    background-image: url($icon-path + 'i-shared.png');
+  }
+  &.i-comments {
+    width: 17px;
+    height: 17px;
+    background-image: url($icon-path + 'i-comments.png');
+  }
+  &.i-pensil {
+    width: 16px;
+    height: 17px;
+    background-image:  url($icon-path + 'i-pensil.png');
+  }
+  &.i-marker {
+    width: 10px;
+    height: 13px;
+    background-image: url($icon-path + 'i-marker.png');
+  }
+  &.i-shared-red {
+    width: 19px;
+    height: 22px;
+    background-image: url($icon-path + 'i-shared-red.png');
+  }
+  &.i-viber {
+    width: 15px;
+    height: 15px;
+    background-image: url($icon-path + 'i-viber.png');
+  }
+  &.i-eye {
+    width: 18px;
+    height: 13px;
+    background-image: url($icon-path + 'i-eye.png');
+  }
+  &.i-plus-circle {
+    width: 30px;
+    height: 31px;
+    background-image: url($icon-path + 'i-plus-circle-red.png');
+  }
+  &.i-eye-white {
+    width: 14px;
+    height: 10px;
+    background-image: url($icon-path + 'i-eye-white.png');
+  }
+  &.i-clock-white {
+    width: 13px;
+    height: 13px;
+    background-image: url($icon-path + 'i-clock.png');
+  }
+}
+.icon {
+  margin-top: -2px;
+  left: 0;
+  @include position-abs-v-center;
+
+  .icon-path {
+    fill: #ed1f24;
+    fill-rule: evenodd;
+  }
+}

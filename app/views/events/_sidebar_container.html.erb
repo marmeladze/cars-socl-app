@@ -1,0 +1,12 @@
+<div class="sidebar-container mobile-order-2">
+  <%= render partial: 'entities/manage_admins', locals: { entity: @event, type: 'event' } %>
+  <% if @event.new_record? %>
+    <%= render partial: 'entities/select_entity_type', locals: { entity: @event, type: 'event', field_name: 'event[event_type]' } %>
+  <% else %>
+    <%= render partial: 'entities/category_widget', locals: { entity: @event, type: 'event' } %>
+    <%= render partial: 'entities/location_and_contact_details_widget', locals: { entity: @event, type: 'event' } %>
+  <% end %>
+  <%= render partial: 'events/event_dates' %>
+  <%= render partial: 'events/manage_attendees' %>
+  <%= render partial: 'shared/sidebar_footer' %>
+</div>

@@ -1,0 +1,13 @@
+Hi <%= @attendee.display_name %>,
+
+<p>
+  You are being invited by 
+  <%= link_to @admin.display_name, profile_user_url(@admin) %> to attend event <%= link_to @event.name, event_url(@event), target: '_blank' %>.
+</p>
+
+<p>
+  Accept the invitation by clicking <%= link_to 'here', accept_invitation_event_url(id: @event.id), method: :post %>.
+</p>
+
+Regards,
+Team, MotorBrag.

@@ -1,0 +1,117 @@
+.comments-container {
+  padding: 0 20px 15px;
+
+  .comment-item {
+    .comment-header {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px 15px 0;
+      position: relative;
+
+      .avatar-container {
+        width: 36px;
+        height: 36px;
+        border: none;
+        margin: 0 13px 0 0;
+      }
+      .comment-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        span {
+
+          &.user-name {
+            a {
+              font: {
+                size: 16px;
+                family: $base-font-family-proxima-nova-semibold;
+              }
+              color: #ed1f24;
+              line-height: 16px;
+            }
+          }
+          &.posted-by {
+            font: {
+              family: $base-font-family-proxima-nova-regular;
+              size: 13px;
+            };
+            color: #aeaeae;
+            line-height: 13px;
+          }
+        }
+      }
+      .btn-settings {
+        display: block;
+        height: 18px;
+        right: 0;
+        z-index: 99;
+        width: 20px;
+        text-align: center;
+        @include position-abs-v-center;
+
+        .zmdi {
+          font-size: 24px;
+          color: #bababa;
+          line-height: 18px;
+        }
+      }
+    }
+    .comment-body {
+      padding: 0;
+
+      p {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 14px;
+        };
+        color: #3c3c3c;
+        margin: 0;
+      }
+    }
+    .comment-footer {
+      padding: 0;
+
+      .comment-menu {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        font-size: 0;
+
+        li {
+          display: inline-block;
+          padding: 0 10px;
+          position: relative;
+
+          a {
+            font: {
+              size: 13px;
+              family: $base-font-family-proxima-nova-regular;
+            }
+            color: #ed1f24;
+          }
+
+          &:first-child {
+            padding-left: 0;
+          }
+          &:not(:last-child){
+            &:after {
+              content: '';
+              display: block;
+              width: 3px;
+              height: 3px;
+              border-radius: 1px;
+              background-color: #bbbbbb;
+              margin-top: -1px;
+              @include position-abs-v-center;
+              right: -1px;
+            }
+          }
+        }
+      }
+    }
+    .replies-container {
+      padding: 0 0 0 35px;
+    }
+  }
+}

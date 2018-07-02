@@ -1,0 +1,46 @@
+
+
+@media all and (max-width: 991px) {
+  body {
+
+    &.login-page {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0;
+      height: auto;
+
+      .main-splash  {
+        order: 2;
+
+        .splash-section {
+          height: auto;
+
+          &.testimonials-section {
+            position: relative;
+            width: 100%;
+            visibility: visible;
+            height: auto;
+            opacity: 1;
+
+            .splash-content-container {
+              width: 100%;
+              height: auto;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 0 10px;
+
+              .brand-container {
+                display: none;
+              }
+            }
+            .sections-controller-container {
+              display: none;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

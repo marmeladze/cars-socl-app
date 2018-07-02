@@ -1,0 +1,19 @@
+<div class="widget-items-list">
+  <% groups.each do |group| %>
+    <div class="item boxed-item">
+      <a class="avatar-container" href="#">
+        <%= image_tag group.thumb_url, class: 'avatar-img', alt: group.name %>
+      </a>
+      <div class="info-container">
+        <%= link_to group.name, group_path(group), class: 'item-title' %>
+        <span class="item-description"><a href="#">Susan Smith</a> and <a href="#">644</a> joined group</span>
+      </div>
+    </div>
+  <% end %>
+  <% if groups.count == 0 %>
+    <div class="item boxed-item">
+      <p>No groups available </p>
+    </div>
+  <% end %>
+</div>
+<a href="#" class="link-more">See More</a>

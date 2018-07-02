@@ -1,0 +1,58 @@
+.page-control-tabs {
+  .nav {
+    &.nav-tabs {
+      &.content-tabs {
+
+      }
+    }
+  }
+  .select-container {
+    display: none;
+    background-color: #f6f8fa;
+    border-top: 1px solid #ececec;
+    align-items: center;
+    padding: 10px;
+
+    .label {
+      padding: 0 10px 0 0;
+      flex: 1 1 50%;
+      font: {
+        size: 14px;
+        family: $base-font-family-proxima-nova-regular;
+      };
+      color: #3c3c3c;
+      line-height: 14px;
+    }
+    .bootstrap-select {
+      flex: 1 1 50%;
+
+      .btn {
+        &.dropdown-toggle {
+          background-color: transparent;
+          border: {
+            bottom: 1px solid #3c3c3c;
+            top: none;
+            left: none;
+            right: none;
+          }
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .page-control-tabs {
+    .nav {
+      &.nav-tabs {
+        &.content-tabs {
+          display: none;
+        }
+      }
+    }
+    .select-container {
+      display: flex;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="content-container full-width">
+  <div class="buttons-block">
+    <a href="javascript:void(0);" class="btn btn-primary btn-block"><span>Add new photo</span></a>
+  </div>
+  <div class="content-block gallery-section images-gallery">
+    <% photos.each do |photo| %>
+      <a class="fancyimage" data-fancybox="gallery" href="<%= photo.file.url %>">
+        <%= image_tag(photo.file.galary_thumb.url) %>
+      </a>
+    <% end %>
+  </div>
+</div>

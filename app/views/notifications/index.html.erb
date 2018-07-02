@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 main-container">
+      <div class="content-container full-width">
+        <h4>Notifications</h4>
+        <div class="notifications-list content-notifications">
+          <% @notifications.each do |notification| %>
+            <%= render partial: get_notification_item(notification), locals: { notification: notification, args: notification.args } %>
+          <% end %>
+        </div>
+        <!-- <div class="content-preloader">
+          <span class="preloader">
+            <img src="images/icons/i-spinner.svg" alt="">
+          </span>
+        </div> -->
+      </div>
+    </div>
+    </div>
+</div>

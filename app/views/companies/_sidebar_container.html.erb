@@ -1,0 +1,31 @@
+<div class="sidebar-container mobile-order-2">
+  <%= render partial: 'entities/manage_admins', locals: {entity: @company, type: 'company'} %>
+  <div class="widget collapsible-widget">
+    <div class="widget-header">
+      <span class="title with-icon"><i class="zmdi zmdi-file-text"></i>Motors relevant to this page</span>
+    </div>
+    <div class="widget-body">
+      <div class="widget-items-list">
+        <div class="item boxed-item">
+          <a href="#" class="avatar-container">
+            <img class="avatar-img" src="../assets/black-mercedes-benz-vehicle-205740.jpg" alt="">
+          </a>
+          <div class="info-container">
+            <a href="#" class="item-title">Mercedes SL55 AMG</a>
+          </div>
+        </div>
+        <div class="item boxed-item">
+          <a href="#" class="avatar-container">
+            <img class="avatar-img" src="../assets/motorcycle-lorenzo-race-car-driver-racing-34535.jpg" alt="">
+          </a>
+          <div class="info-container">
+            <a href="#" class="item-title">Yamaha R6</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="link-more">See More</a>
+    </div>
+  </div>
+  <%= render partial: 'entities/location_and_contact_details_widget', locals: { entity: @company, type: 'company' } %>
+  <%= render partial: 'shared/sidebar_footer' %>
+</div>

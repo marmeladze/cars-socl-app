@@ -1,0 +1,47 @@
+<div class="content-container mobile-order-1">
+  <div class="content-block">
+    <div class="block-body">
+      <%= form_tag(form_action, class: 'form content-form', method: :get, id: 'search_form') do %>
+        <div class="form-group search-group">
+          <label for="keywordSearch">Keywords search</label>
+          <div>
+            <input type="text" name='term' value="<%= params[:term] %>" id="keywordSearch" class="form-control" placeholder="Type search keywords">
+            <span class="form-control-border"></span>
+              <a href="javascript:{}" onclick="document.getElementById('search_form').submit();" role="button" class="search-btn">
+                <span class="zmdi zmdi-search"></span>
+              </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="tabs-container page-control-tabs">
+      <ul class="nav nav-tabs content-tabs justify-content-center" id="SearchTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link <%= search_tab_active_klass('companies') %>" href="/search/companies"  data-behavior='update_search_action'>Company</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= search_tab_active_klass('people') %>" href="/search/people" data-behavior='update_search_action'>People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= search_tab_active_klass('motors') %>" href="/search/motors" data-behavior='update_search_action'>Motors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= search_tab_active_klass('groups') %>" href="/search/groups" data-behavior='update_search_action'>Groups</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= search_tab_active_klass('events') %>" href="/search/events" data-behavior='update_search_action'>Events</a>
+        </li>
+      </ul>
+      <div class="select-container">
+        <span class="label">Search in category:</span>
+        <select class="selectpicker" id="pageControlTabs">
+          <option data-tokens="0" value="company">Company</option>
+          <option data-tokens="1" value="people">People</option>
+          <option data-tokens="2" value="motors">Motors</option>
+          <option data-tokens="3" value="groups">Groups</option>
+          <option data-tokens="4" value="events">Events</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

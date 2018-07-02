@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="main-container">
+        <%= render partial: 'search/advanced_search/events' %>
+        <%= render partial: 'search/search_box_container', locals: { form_action: events_search_path} %>
+        <div class="content-container mobile-order-3">
+          <div class="content-block">
+            <div class="block-header">
+              <h4 class="with-icon"><i class="zmdi zmdi-calendar-note"></i>Events</h4>
+              <a href="#" class="link">See all</a>
+            </div>
+            <div class="block-body">
+              <div class="content-items-list full-width">
+                <% @results.each do |event| %>
+                  <div class="item">
+                    <%= link_to event_path(event.id), class: 'avatar-container', target: '_blank' do %>
+                      <%= image_tag event.thumb_url, alt: '' %>
+                    <% end %>
+                    <div class="info">
+                      <%= link_to event.name, event_path(event.id), class: 'title', target: '_blank' %>
+                      <span class="location"><i class="zmdi zmdi-pin"></i><span><%= event.city %></span></span>
+                    </div>
+                    <div class="buttons-container">
+                      <% unless event.admin_users.include?(current_user) %>
+                        <% if event.attendees.include?(current_user) %>
+                          <%= link_to drop_event_path(event), method: :post, class: 'btn btn-primary', target: '_blank' do %>
+                            <span>Drop from Event</span>
+                          <% end %>
+                        <% elsif event.has_pending_invitation?(current_user) %>
+                          <%= link_to accept_invitation_event_path(event), class: 'btn btn-primary', target: '_blank' do %>
+                            <span>Accept Invitation</span>
+                          <% end %>
+                        <% elsif event.public? %>
+                          <%= link_to attend_event_path(event), method: :post, class: 'btn btn-primary', target: '_blank' do %>
+                            <span>Attend Event</span>
+                          <% end %>
+                        <% elsif event.on_request? %>
+                          <%= link_to join_request_event_path(event), method: :post, class: 'btn btn-primary', target: '_blank' do %>
+                            <span>Request to Attend</span>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                      <a href="#" class="btn btn-secondary btn-more"><i class="zmdi zmdi-more"></i></a>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="block-footer">
+              <a href="#" class="more-block-btn"><i class="zmdi zmdi-more"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

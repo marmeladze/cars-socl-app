@@ -1,0 +1,157 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 main-container">
+      <%= render partial: 'sidebar' %>
+      <div class="content-container">
+        <div class="content-block settings-block">
+          <%= form_tag(notifications_settings_path, method: :post, class: 'form content-form', id: 'notification_settings_form') do %>
+          <div class="block-body">
+            <div class="settings-list">
+              <h4>Email Notifications</h4>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">SOMEONE TAGS ME IN A POST OR COMMENT</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'email[someone_tags_me]', false, id: 'email_someone_tags_me_hidden' %>
+                    <%= check_box_tag 'email[someone_tags_me]', true, @email.someone_tags_me %>
+                    <label for="email_someone_tags_me">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">SOMEONE ADDS A NEW COMMENT IN MY POSTS</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'email[new_comment]', false, id: 'email_new_comment_hidden' %>
+                    <%= check_box_tag 'email[new_comment]', true, @email.new_comment %>
+                    <label for="email_new_comment">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">NEW GROUP ACTIVITY</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'email[new_group_activity]', false, id: 'email_new_group_activity_hidden' %>
+                    <%= check_box_tag 'email[new_group_activity]', true, @email.new_group_activity %>
+                    <label for="email_new_group_activity">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <h4>In App Notifications</h4>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">SOMEONE TAGS ME IN A POST OR COMMENT</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'app[someone_tags_me]', false, id: 'app_someone_tags_me_hidden' %>
+                    <%= check_box_tag 'app[someone_tags_me]', true, @in_app.someone_tags_me %>
+                    <label for="app_someone_tags_me">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">SOMEONE ADDS A NEW COMMENT IN MY POSTS</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'app[new_comment]', false, id: 'app_new_comment_hidden' %>
+                    <%= check_box_tag 'app[new_comment]', true, @in_app.new_comment %>
+                    <label for="app_new_comment">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">NEW GROUP ACTIVITY</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'app[new_group_activity]', false, id: 'app_new_group_activity_hidden' %>
+                    <%= check_box_tag 'app[new_group_activity]', true, @in_app.new_group_activity %>
+                    <label for="app_new_group_activity">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">FOLLOW REQUEST CONFIRMATION</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'app[follow_request]', false, id: 'app_follow_request_hidden' %>
+                    <%= check_box_tag 'app[follow_request]', true, @in_app.follow_request %>
+                    <label for="app_follow_request">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">SOMEONE LIKES YOUR POST</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'app[new_like]', false, id: 'app_new_like_hidden' %>
+                    <%= check_box_tag 'app[new_like]', true, @in_app.new_like %>
+                    <label for="app_new_like">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+              <div class="settings-item">
+                <div class="settings-header">
+                  <span class="title">SOMEONE BRAGS YOUR POST</span>
+                  <span class="styled-togglebox">
+                    <%= hidden_field_tag 'app[rebrag]', false, id: 'app_rebrag_hidden' %>
+                    <%= check_box_tag 'app[rebrag]', true, @in_app.rebrag %>
+                    <label for="app_rebrag">
+                      <span class="togglebox"></span>
+                    </label>
+                  </span>
+                </div>
+                <div class="settings-body">
+                  <p>Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="block-footer">
+            <%= submit_tag "Save changes", class: 'btn btn-primary btn-block' %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

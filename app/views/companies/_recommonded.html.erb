@@ -1,0 +1,8 @@
+<div class="widget collapsible-widget recomonded-companies-widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-city"></i>Recommended Companies</span>
+  </div>
+  <div class="widget-body">
+    <%= render partial: 'companies/list_companies', locals: { companies: @user.companies } %>
+  </div>
+</div>

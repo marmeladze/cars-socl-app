@@ -1,0 +1,18 @@
+<% if !entity.new_record? && entity.categories.present? %>
+  <div class="widget collapsible-widget">
+    <div class="widget-header">
+      <span class="title with-icon"><i class="zmdi zmdi-sort-amount-desc"></i><%= type.capitalize %> Category</span>
+    </div>
+    <div class="widget-body">
+      <div class="tags-container">
+        <ul class="tags-list">
+          <% entity.categories.each do |category| %>
+            <li class="tag">
+              <span><%= category.tag_name %></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

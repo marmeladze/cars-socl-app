@@ -1,0 +1,22 @@
+ <div class="modal fade" id="manageAdmins">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Manage Admins</h4>
+      </div>
+      <div class="modal-body">
+        <div class="search-container">
+          <div class="form-group">
+            <%= text_field_tag 'search_key', nil, class: 'form-control', placeholder: 'Search for users...', id: 'admin-user-search-txt', 'data-behavior': 'users_autocomplete', 'data-append-dom': '#manageAdmins #admins-users-list', 'data-item-behavior': 'add_admin_user_to_list' %>
+            <i class="zmdi zmdi-search"></i>
+          </div>
+        </div>
+        <div class="users-list" id='admins-users-list'>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-block"><span>Finish</span></button>
+      </div>
+    </div>
+  </div>
+</div>

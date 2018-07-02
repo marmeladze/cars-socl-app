@@ -1,0 +1,46 @@
+.avatar-container {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: 4px solid #fff;
+  flex: none;
+
+  & > img.avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .add-avatar {
+    position: absolute;
+    display: flex;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .4);
+    transform: translate(-50%, -50%);
+    transition: all .5s 0s;
+    text-decoration: none;
+
+    & > i {
+      margin: auto;
+      font-size: 30px;
+      color: #fff;
+    }
+  }
+  &:hover {
+    .add-avatar {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

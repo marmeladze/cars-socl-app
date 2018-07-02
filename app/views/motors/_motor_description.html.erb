@@ -1,0 +1,46 @@
+<div class="content-block images-slider">
+  <div class="flexslider-container" data-behavior='flex_slider' data-carousel='#<%= parent %>MotorCarousel' data-slider='#<%= parent %>MotorSlider' data-margin='<%= @motor.photos.count %>'>
+    <div id="<%= parent %>MotorSlider" class="flexslider images-slider">
+      <ul class="slides">
+        <% @motor.photos.each do |photo| %>
+          <li><%= image_tag(photo.file.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="<%= parent %>MotorCarousel" class="flexslider images-carousel">
+      <ul class="slides">
+        <% @motor.photos.each do |photo| %>
+          <li><%= image_tag(photo.file.thumb.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="car-description-container">
+    <h3><%= "#{@motor.make} #{@motor.model}" %></h3>
+    <div class="info">
+      <span class="car-info">
+        <%= "#{@motor.engine_size} #{@motor.fuel_type} - #{@motor.make_year}" %>
+      </span>
+      <span class="user-info">owned by <a href="javascript:void(0)"><%= @motor.user.name %></a></span>
+    </div>
+    <p><%= @motor.about %></p>
+    <ul class="properties-list">
+      <li>
+        <img src="../assets/icons/i-car-icon-1.svg" alt="">
+        <span><span class="value"><%= @motor.acceleration %></span><span class="unit">sec</span></span>
+      </li>
+      <li>
+        <img src="../assets/icons/i-car-icon-2.svg" alt="">
+        <span><span class="value"><%= @motor.top_speed %></span><span class="unit">mph</span></span>
+      </li>
+      <li>
+        <img src="../assets/icons/i-car-icon-3.svg" alt="">
+        <span><span class="value"><%= @motor.co2_emissions %></span><span class="unit">g/km</span></span>
+      </li>
+      <li>
+        <img src="../assets/icons/i-car-icon-4.svg" alt="">
+        <span><span class="value"><%= @motor.fuel_consumption %></span><span class="unit">mpg</span></span>
+      </li>
+    </ul>
+  </div>
+</div>

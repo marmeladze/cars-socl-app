@@ -1,0 +1,10 @@
+<% if comment.likers.count > 0 %>
+  <span>
+    <%= pluralize(comment.likers.count, 'like') %> &nbsp;| &nbsp;
+  </span>
+<% end %>
+<% if comment.is_liked_by?(current_user) %>
+  <%= link_to 'dislike', '#', 'data-href': dislike_comment_post_path(id: post.id, comment_id: comment.id, authenticity_token: form_authenticity_token), 'data-behavior': 'ajax_post', 'data-target': "comment-#{comment.id}-likes" %>
+<% else %>
+  <%= link_to 'like', '#', 'data-href': like_comment_post_path(id: post.id, comment_id: comment.id, authenticity_token: form_authenticity_token), 'data-behavior': 'ajax_post', 'data-target': "comment-#{comment.id}-likes" %>
+<% end %>

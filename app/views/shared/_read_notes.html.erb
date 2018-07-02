@@ -1,0 +1,10 @@
+<div class='notes'>
+  <div class='short-note'>
+    <%= truncate(message.html_safe, length: 350, omission: '', escape: false) { link_to '...read more', '#', 'data-behavior': 'read_more'} %>
+  </div>
+  <div class='full-note hidden'>
+    <%= message.html_safe %>
+    <br/>
+    <%= link_to 'read less', '#', 'data-behavior': 'read_less' %>
+  </div>
+</div>

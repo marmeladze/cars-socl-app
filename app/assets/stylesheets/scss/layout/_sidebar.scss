@@ -1,0 +1,46 @@
+.sidebar-container {
+  
+  .sidebar-footer {
+    .license-menu-container {
+      margin: 20px 0 10px;
+
+      .license-menu {
+        li {
+          a {
+            color: #bababa;
+            font: {
+              family: $base-font-family-texta-bold;
+              size: 14px;
+            };
+          }
+
+          &:not(:last-child) {
+            &:after {
+              width: 3px;
+              height: 3px;
+              border-radius: 1px;
+              background-color: #bbbbbb;
+              margin: 1px -2px 0 0;
+            }
+          }
+        }
+      }
+    }
+    .copyright {
+      color: #bababa;
+      font: {
+        family: $base-font-family-texta-medium;
+        size: 14px;
+      };
+      text-align: center;
+    }
+  }
+}
+
+@media all and (max-width: 991px) {
+  .sidebar-container {
+    .sidebar-footer {
+      display: none;
+    }
+  }
+}

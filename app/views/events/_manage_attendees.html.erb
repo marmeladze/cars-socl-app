@@ -1,0 +1,34 @@
+<div class="widget collapsible-widget manage_attendees_widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-accounts-alt"></i>Attendees</span>
+  </div>
+  <div class="widget-body">
+    <% unless @event.new_record? %>
+      <div class="options">
+        <span>Latest Attendees</span>
+        <a class="nav-link" href="#attendees" data-behavior='trigger_click' data-target='attendeesTab'>See All</a>
+      </div>
+    <% end %>
+    <div class="widget-items-list">
+      <% @event.attendees.each do |attendee| %>
+        <div class="item boxed-item">
+          <%= link_to profile_user_path(attendee), class: 'avatar-container' do %>
+            <%= image_tag attendee.thumb_url, class: 'avatar-img', alt: '' %>
+          <% end %>
+          <div class="info-container">
+            <%= link_to attendee.display_name, profile_user_path(attendee), class: 'item-title' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <% if @event.user == current_user %>
+      <div class="buttons-container mt-20">
+        <div data-toggle="modal" data-target="#manageAttendees" class="btn btn-primary btn-block btn-small"><span>Manage Attendees</span></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% content_for :footer_content do %>
+  <%= render partial: 'events/manage_users_modal' %>
+<% end %>

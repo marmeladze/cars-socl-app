@@ -1,0 +1,94 @@
+.calendar-wrapper {
+
+  .bootstrap-datetimepicker-widget {
+
+    .datepicker {
+
+      table {
+
+        thead {
+          tr {
+            &:nth-child(1) {
+              @include gradient-background(#fd674e, #f02836);
+
+              th {
+                font: {
+                  family: $base-font-family-proxima-nova-semibold;
+                  size: 18px;
+                };
+                color: #fff;
+                transition: all .5s 0s;
+                background-color: transparent;
+                padding: 5px 2px;
+
+                &:hover {
+                  background-color: rgba(0, 0, 0, .1);
+                }
+
+                .zmdi {
+                  font-size: 30px;
+                }
+              }
+            }
+            &:nth-child(2) {
+              background: #f6f8fa;
+              border: {
+                top: 1px solid #fff;
+                bottom: 1px solid #ececec;
+              };
+
+              th {
+                font: {
+                  family: $base-font-family-proxima-nova-bold;
+                  size: 16px;
+                };
+                color: #bababa;
+                padding: 8px 2px;
+              }
+            }
+
+            th {
+              border-radius: 0;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              width: 30px;
+              height: 30px;
+              text-align: center;
+              font: {
+                family: 'Avenir Next Cyr Medium';
+                size: 16px;
+              };
+              color: #272b2e;
+              border-radius: 2px;
+              box-shadow: inset 0 0 0 0 #ed1f24;
+              transition: all .5s 0s;
+
+              &.today {
+                color: #ed1f24;
+
+                &:before {
+                  display: none;
+                }
+              }
+              &.new, &.old {
+                color: #bababa;
+              }
+              &.active, &.active:hover {
+                color: #fff;
+                @include gradient-background(#fd674e, #f02836);
+              }
+              &:hover {
+                background: none;
+                box-shadow: inset 0 0 0 1px #ed1f24;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

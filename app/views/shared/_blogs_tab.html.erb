@@ -1,0 +1,11 @@
+<div class="tab-pane fade" id="blogs" role="tabpanel" aria-labelledby="blogsTab">
+  <div class="main-container">
+    <%= render partial: 'sidebar_container' %>
+    <div class="content-container details mobile-order-2">
+      <%= render partial: 'posts/index', locals: {posts: current_entity.blog_posts} %>
+<!--       <div class="content-preloader">
+        <span class="preloader"><img src="../assets/icons/i-spinner.svg" alt=""></span>
+      </div> -->
+    </div>
+  </div>
+</div>

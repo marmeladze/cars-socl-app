@@ -1,0 +1,61 @@
+<div class="comment-header">
+  <div class="avatar-container">
+    <%= image_tag comment.user.thumb_url, alt: 'image', class: 'avatar-img' %>
+  </div>
+  <div class="comment-info">
+    <span class="user-name">
+      <%= link_to comment.user.display_name, user_profile_path(comment.user), target: '_blank' %>
+    </span>
+    <span class="posted-by"><%= time_ago_in_words(comment.created_at) %> ago</span>
+  </div>
+
+  <a href="javascript:void(0)"
+     data-toggle="dropdown"
+     aria-haspopup="true"
+     aria-expanded="false"
+     role="dropdown-menu"
+     class="btn-settings"><i class="zmdi zmdi-more-vert"></i></a>
+
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton2">
+    <div class="dropdown-body">
+      <%= link_to 'Remove', post_comments_path(post, comment_id: comment.id), method: :delete,
+                  remote: true,
+                  'data-behavior': 'remove_box',
+                  'data-box-id': comment.id,
+                  'data-post-id': post.id,
+                  class: 'dropdown-item' %>
+    </div>
+  </div>
+</div>
+<div class="comment-body">
+  <p><%= comment.body %></p>
+</div>
+<div class="comment-footer">
+  <ul class="comment-menu">
+    <li class="likes-info <%= "comment-#{comment.id}-likes" %>">
+      <%= render partial: 'posts/comment_likes_info', locals: { post: post, comment: comment} %>
+    </li>
+    <li><a href="javascript:void(0)" data-behavior='toggle_comment_container' data-target='reply-<%= comment.id %>'>Reply</a></li>
+  </ul>
+</div>
+<div class="add-comment-container add-reply-container hidden reply-<%= comment.id %>">
+  <div class="avatar-container">
+    <%= image_tag current_user.thumb_url, class: 'avatar-img', alt: current_user.display_name %>
+  </div>
+  <%= form_tag(add_reply_post_path(id: post.id, comment_id: target_id), method: :post, class: 'flex-form') do %>
+    <div class="text-field-container">
+      <%= text_area_tag 'comment[body]', nil, cols: '73', rows: '2',
+                        'data-behavior': 'adjust_textarea',
+                        'data-target': "post-#{post.id}-comments",
+                        'data-post-id': post.id,
+                        placeholder: 'Add a reply...' %>
+    </div>
+    <a href="javascript:void(0)" class="add-comment"
+       data-behavior='ajax_post'
+       data-target='post-<%= post.id %>-comments'
+       data-post-id="<%= post.id %>"
+       data-type='form'>
+      <i class="zmdi zmdi-mail-send"></i>
+    </a>
+  <% end %>
+</div>

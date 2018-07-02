@@ -1,0 +1,58 @@
+.sections-controller-container {
+  display: flex;
+  width: calc(100% - 480px);
+  @include position-abs-b-l;
+  z-index: 9;
+
+  .sections-controller {
+    margin: 15px auto 28px;
+    display: flex;
+    flex-direction: column;
+
+    a, span {
+      display: block;
+      color: #fff;
+      font: {
+        family: $base-font-family-texta-heavy;
+        size: 13px;
+      }
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+
+      &.controller-icon {
+        position: relative;
+        margin: 7px auto 0;
+        width: 15px;
+        height: 25px;
+        overflow: hidden;
+        border-radius: 3px;
+        border: 1px solid rgba(255, 255, 255, .45);
+        text-align: center;
+
+        i {
+          font-size: 12px;
+          color: #fff;
+          display: inline-block;
+          position: relative;
+
+          animation: {
+            delay: 0s;
+            name: jumpingDown;
+            duration: 2s;
+            iteration-count: infinite;
+          };
+        }
+        &.arrow-bot {
+          i {
+            margin-right: -2px;
+          }
+        }
+        &.arrow-top {
+          i {
+            margin-right: -1px;
+          }
+        }
+      }
+    }
+  }
+}

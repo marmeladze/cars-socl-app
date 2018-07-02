@@ -1,0 +1,51 @@
+<div class="content-block article article-short" id="post-<%= post.id %>">
+  <div class="article-header">
+    <div class="avatar-container">
+      <%= image_tag post.postable.thumb_url, class: 'avatar-img', alt: '' %>
+    </div>
+    <div class="article-info">
+      <span class="user-name"><a href="javascript:void(0);"><%= post.posted_by.display_name %></a></span>
+      <span class="post-date"><%= time_ago_in_words(post.created_at) %> ago</span>
+    </div>
+  </div>
+  <div class="article-body">
+    <% if(post.is_a?(BlogPost) || post.is_a?(PhotoPost)) %>
+      <%= image_tag post.photo.file_url, alt: 'image', class: 'avatar-img' if post.photo.present? %>
+    <% end %>
+    <%= render partial: 'shared/read_notes', locals: { message: post.body, length: 350 } %>
+  </div>
+  <div class="article-footer">
+    <span class="likes-info <%= "post-#{post.id}-likes" %>">
+      <%= render partial: 'posts/post_likes_info', locals: { post: post } %>
+    </span>
+    <span class="shared-info">
+      <i class="zmdi zmdi-share"></i>
+      <span>0 reBrags</span>
+    </span>
+    <span class="comments-info">
+      <i class="zmdi zmdi-comments"></i>
+      <span class="<%= "post-#{post.id}-count-comments" %>"><%= post.comments.count %> Comments</span>
+    </span>
+  </div>
+
+  <div class="comments-container post-<%= post.id %>-comments">
+    <%= render partial: 'posts/comments', locals: { post: post, comments: post.comments } %>
+  </div>
+  <div class="add-comment-container">
+    <div class="avatar-container">
+      <%= image_tag current_user.thumb_url, class: 'avatar-img', alt: current_user.display_name %>
+    </div>
+    <%= form_tag(create_comment_post_path(post), method: :post, class: 'flex-form') do %>
+      <div class="text-field-container">
+        <%= text_area_tag 'comment[body]', nil, cols: '73', rows: '2',
+                          'data-behavior': 'adjust_textarea',
+                          'data-target': "post-#{post.id}-comments",
+                          'data-post-id': post.id,
+                          placeholder: 'Add a comment...' %>
+      </div>
+      <a href="#" class="add-comment" data-behavior='ajax_post' data-post-id="<%= post.id %>" data-target='post-<%= post.id %>-comments' data-type='form'>
+        <i class="zmdi zmdi-mail-send"></i>
+      </a>
+    <% end %>
+  </div>
+</div>

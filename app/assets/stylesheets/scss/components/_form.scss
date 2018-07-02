@@ -1,0 +1,196 @@
+.form {
+
+  &.register-form,
+  &.login-form {
+    margin-top: 50px;
+  }
+  &.content-form {
+    .form-group {
+      margin-bottom: 15px;
+
+      label {
+        width: 100%;
+        font: {
+          family: $base-font-family-texta-heavy;
+          size: 13px;
+        };
+        color: #bababa;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        line-height: 15px;
+        letter-spacing: 1px;
+      }
+      textarea.form-control {
+        padding: 0;
+        line-height: 18px;
+        height: auto;
+        color: #3c3c3c;
+        font: {
+          size: 14px;
+          family: $base-font-family-proxima-nova-regular;
+        }
+        resize: none;
+
+        &:focus {
+          color: #3c3c3c;
+        }
+      }
+      .form-control {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 16px;
+        };
+        color: #3c3c3c;
+        padding: 0 5px;
+
+        &::placeholder {
+          color: #3c3c3c;
+        }
+      }
+
+      &.inline-radio {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        border-bottom: none;
+
+        & > label {
+          width: auto;
+          margin-top: 2px;
+        }
+        .styled-checkbox {
+          margin-bottom: 0;
+          margin-left: 25px;
+
+          label {
+
+            .checkbox {
+              top: -4px;
+            }
+            .title {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      &.with-icon {
+        .form-control {
+          padding-left: 13px;
+          line-height: 26px;
+          height: 26px;
+        }
+
+        .zmdi {
+          position: absolute;
+          left: 0;
+          bottom: 6px;
+          color: #bababa;
+        }
+      }
+    }
+    .button-container {
+      display: flex;
+      height: 100%;
+      align-items: flex-end;
+
+      .btn {
+        margin: auto 0 0;
+        padding: 9px 32px;
+      }
+    }
+    .description {
+      font: {
+        size: 16px;
+        family: $base-font-family-proxima-nova-regularIt;
+      };
+      color: #3c3c3c;
+      text-transform: none;
+
+      & > span {
+        color: #bababa;
+      }
+    }
+  }
+
+}
+.form-group {
+  position: relative;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 27px;
+
+  .form-control {
+    border: none;
+    padding: 0 25px 0 0;
+    font: {
+      size: 16px;
+      family: $base-font-family-proxima-nova-regular;
+    };
+    color: #c4c7cb;
+    line-height: 30px;
+    height: 30px;
+    transition: all 1s 0s;
+
+    &:focus {
+      color: #f43d3e;
+
+      & + .form-control-border {
+        width: 100%;
+      }
+    }
+
+    &::placeholder {
+      color: #c4c7cb;
+      font: {
+        size: 16px;
+        family: $base-font-family-proxima-nova-regular;
+      };
+    }
+  }
+
+  .form-control-border {
+    display: block;
+    width: 0;
+    height: 1px;
+    @include position-abs-b-l;
+    transition: all .5s 0s;
+    background: rgb(240,40,54);
+    background: -moz-linear-gradient(45deg, rgba(240,40,54,1) 0%, rgba(253,103,78,1) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(240,40,54,1) 0%,rgba(253,103,78,1) 100%);
+    background: linear-gradient(45deg, rgba(240,40,54,1) 0%,rgba(253,103,78,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f02836', endColorstr='#fd674e',GradientType=1 );
+  }
+}
+
+@media all and (max-width: 991px) {
+  .form-group {
+    .form-control {
+      background-color: transparent;
+    }
+  }
+}
+
+@media all and (max-width: 767px) {
+  .form {
+    &.content-form {
+      .button-container {
+        justify-content: center;
+
+        .btn {
+          margin: 20px 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 575px) {
+  .form {
+    &.content-form {
+
+      .col-xs-6 {
+        width: 50%;
+      }
+    }
+  }
+}

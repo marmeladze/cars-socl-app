@@ -1,0 +1,20 @@
+<div class="tab-pane fade show active" id="allPosts" role="tabpanel" aria-labelledby="allPostsTab">
+  <div class="main-container">
+    <%= render partial: 'sidebar_container' %>
+    <div class="content-container mobile-order-1">
+      <%= render partial: 'posts/add_post', locals: { target: '#allPosts .mobile-order-3' } %>
+      <div class="content-block">
+        <div class="title-container">
+          <h4 class="mb-0">I no longer own this motor</h4>
+          <div class="filters-container">
+            <span class="styled-togglebox"><input type="checkbox" id="trendingToggle"><label for="trendingToggle"><span class="togglebox"></span></label></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-container mobile-order-3">
+      <%#= render partial: 'motor_description', locals: { parent: 'allPosts' } %>
+      <%= render partial: 'posts/index', locals: { posts: current_entity.posts } %>
+    </div>
+  </div>
+</div>

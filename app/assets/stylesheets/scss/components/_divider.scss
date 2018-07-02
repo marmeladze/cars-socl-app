@@ -1,0 +1,26 @@
+.divider {
+  display: block;
+  text-align: center;
+  margin: 20px 0;
+  @include background('divider-bg.png', left center, repeat-x, auto);
+
+  span {
+    display: inline-block;
+    padding: 0 15px;
+    font: {
+      size: 13px;
+      family: $base-font-family-proxima-nova-regular;
+    };
+    color: #979797;
+    background-color: #fff;
+    transform: translateY(-2px);
+  }
+}
+
+@media all and (max-width: 991px) {
+  .divider {
+    span {
+      background-color: transparent;
+    }
+  }
+}

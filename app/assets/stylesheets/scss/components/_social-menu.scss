@@ -1,0 +1,26 @@
+.social-menu-container {
+  .social-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    margin-top: 30px;
+
+    li {
+      display: inline-block;
+      padding: 0 10px;
+
+      a {
+        font: {
+          size: 17px;
+        };
+        color: #c4c7cb;
+        transition: all .5s 0s;
+
+        &:hover {
+          color: #b1b3b6;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="widget collapsible-widget recommonded-groups-widget">
+  <div class="widget-header">
+    <span class="title with-icon"><i class="zmdi zmdi-accounts-alt"></i>Recommended Groups</span>
+  </div>
+  <div class="widget-body">
+    <%= render partial: 'groups/list_groups', locals: { groups: @user.groups } %>
+  </div>
+</div>

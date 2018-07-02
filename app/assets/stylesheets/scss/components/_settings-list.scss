@@ -1,0 +1,45 @@
+.settings-list {
+
+  h4 {
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+  .settings-item {
+    border-bottom: 1px solid #ececec;
+
+    .settings-header {
+      display: flex;
+      align-items: center;
+      padding: 0 0 15px;
+
+      span {
+        &.title {
+          display: inline-block;
+          margin-top: 2px;
+          margin-right: auto;
+          font: {
+            size: 13px;
+            family: $base-font-family-texta-heavy;
+          };
+          color: #bababa;
+          text-transform: uppercase;
+        }
+      }
+    }
+    .settings-body {
+      p {
+        padding: 0 5px 5px;
+        margin-bottom: 0;
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 16px;
+        };
+        color: #3c3c3c;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}

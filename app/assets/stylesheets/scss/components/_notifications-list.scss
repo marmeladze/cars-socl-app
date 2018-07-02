@@ -1,0 +1,127 @@
+.notifications-list {
+  .notification-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ececec;
+    background-color: #fff;
+    padding: 15px 20px;
+
+    .avatar-container {
+      width: 36px;
+      height: 36px;
+      border: none;
+      flex: none;
+      margin: 0 10px 0 0;
+    }
+    .notification-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 16px;
+        margin-bottom: 6px;
+        text-align: left;
+
+        a {
+          font: {
+            family: $base-font-family-proxima-nova-semibold;
+            size: 16px;
+          }
+          color: #ed1f24;
+        }
+        .date {
+          font: {
+            family: $base-font-family-proxima-nova-semibold;
+            size: 13px;
+          }
+          color: #bababa;
+        }
+      }
+      .description {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 14px;
+        };
+        color: #3c3c3c;
+        line-height: 14px;
+        text-align: left;
+
+        a {
+          color: #ef4649;
+        }
+      }
+    }
+
+    &.new {
+      background-color: #f7f9fa;
+    }
+  }
+
+  &.content-notifications {
+    margin: 20px 0;
+
+    .notification-item {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+      border-radius: 2px;
+      margin-bottom: 20px;
+
+      .info-container {
+        display: flex;
+        width: 100%;
+
+        .info {
+          margin: 0 auto 0 0;
+          font: {
+            family: $base-font-family-proxima-nova-regular;
+            size: 16px;
+          };
+          color: #3c3c3c;
+
+          .title {
+            font-family: $base-font-family-proxima-nova-semibold;
+          }
+          a {
+            font: {
+              family: $base-font-family-proxima-nova-regular;
+            }
+          }
+        }
+        .notice {
+          font: {
+            family: $base-font-family-proxima-nova-semibold;
+            size: 14px;
+          };
+          color: #bababa;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .notifications-list {
+    &.content-notifications {
+      .notification-item {
+        padding: 10px 10px;
+
+        .avatar-container {
+          width: 50px;
+          height: 50px;
+        }
+        .info-container {
+          flex-wrap: wrap;
+
+          span {
+            display: inline-block;
+            width: 100%;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}

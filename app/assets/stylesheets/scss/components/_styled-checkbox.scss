@@ -1,0 +1,151 @@
+.styled-checkbox {
+  margin-bottom: 10px;
+
+  & > input {
+    display: none;
+
+    &:checked + label {
+
+      .checkbox {
+        border-color: #ee2a2e;
+
+        &:before {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .title {
+        color: #ed1f24;
+      }
+    }
+  }
+
+  label {
+    margin-bottom: 0;
+    display: inline-block;
+    padding-left: 30px;
+    line-height: 16px;
+    position: relative;
+
+    & > span {
+      display: inline-block;
+      width: 100%;
+    }
+
+    .checkbox {
+      display: block;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #bcbcbc;
+      background-color: #fbfbfb;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 0;
+      transition: all .5s 0s;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #ed1f24;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .5s 0s;
+        @include position-abs-vh-center;
+      }
+    }
+    .title {
+      font: {
+        family: $base-font-family-texta-heavy;
+        size: 13px;
+      };
+      color: #bababa;
+      line-height: 14px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      transition: all .5s 0s;
+    }
+    .description {
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 14px;
+      };
+      color: #3c3c3c;
+      line-height: 17px;
+    }
+  }
+}
+.styled-togglebox {
+
+  input {
+    display: none;
+
+    &:checked + label {
+      color: #3c3c3c;
+
+      .togglebox {
+        background-color: #ed1f24;
+
+        &:after {
+          transform: translate(22px, -2px);
+        }
+      }
+    }
+  }
+  label {
+    font: {
+      family: $base-font-family-texta-heavy;
+      size: 13px;
+    };
+    text-transform: uppercase;
+    color: #bababa;
+    transition: all .5s 0s;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+    span {
+      display: inline-block;
+      line-height: 20px;
+      height: 20px;
+    }
+
+    .togglebox {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 20px;
+      background-color: #ececec;
+      margin-left: 15px;
+      border-radius: 8px;
+      transition: all .5s 0s;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 8px;
+        position: absolute;
+        left: 6px;
+        @include position-abs-v-center;
+        @include background('icons/i-toggle-check.png');
+      }
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-color: #fff;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, .3);
+        transition: all .5s 0s;
+        transform: translate(-2px, -2px);
+      }
+    }
+  }
+}

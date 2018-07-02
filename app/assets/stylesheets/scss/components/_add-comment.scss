@@ -1,0 +1,56 @@
+.add-comment-container {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-top: 1px solid #ececec;
+  position: relative;
+
+  .avatar-container {
+    width: 50px;
+    height: 50px;
+    flex: none;
+    border: none;
+    margin: 0 10px 0 0;
+  }
+
+  .text-field-container {
+    width: 100%;
+
+    textarea {
+      width: 100%;
+      font: {
+        family: $base-font-family-proxima-nova-regular;
+        size: 14px;
+      };
+      color: #aeaeae;
+      vertical-align: middle;
+      border: none;
+      resize: none;
+      overflow: hidden;
+
+      &::placeholder {
+        font: {
+          family: $base-font-family-proxima-nova-regular;
+          size: 14px;
+        };
+        color: #aeaeae;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .add-comment {
+    height: 19px;
+    top: 25px;
+    display: block;
+    position: absolute;
+    right: 15px;
+
+    .zmdi {
+      font-size: 20px;
+      color: #bababa;
+    }
+  }
+}

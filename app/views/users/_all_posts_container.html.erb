@@ -1,0 +1,8 @@
+<div class="content-container mobile-order-1">
+  <%= render partial: 'my_motors', locals: { motors: @user.motors } %>
+  <%= render partial: 'dream_garage', locals: { motors: @user.dream_garage.motors } %>
+</div>
+<div class="content-container mobile-order-3">
+  <%= render partial: 'posts/add_post', locals: {target: '#allPosts .mobile-order-3'} %>
+  <%= render partial: 'posts/index', locals: { posts: current_user.posts } %>
+</div>

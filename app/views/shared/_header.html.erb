@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="container">
+    <div class="row align-items-stretch">
+      <div class="col-12 header-container">
+        <%= render partial: 'shared/header_logo' %>
+        <div class="search-container">
+          <%= link_to companies_search_url, class: 'search-btn' do  %>
+            <i class="zmdi zmdi-search"></i>
+          <% end %>
+<!--           <a href="http://motor.valeda.co/search_page.html" class="search-btn"><i class="zmdi zmdi-search"></i></a> -->
+        </div> 
+        <div class="nav-section hidden-sm-down">
+          <%= render partial: 'shared/secondary_menu' %>
+        </div>
+        <div class="nav-section">
+          <ul class="nav-menu">
+            <li class="hidden-sm-down"><a href="#"><i class="zmdi zmdi-accounts-add i-big"></i></a></li>
+            <%= render partial: 'shared/notifications_menu' %>
+            <li class="hidden-sm-down">
+              <div class="dropdown">
+                <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a href="#"><i class="zmdi zmdi-more-vert"></i></a>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right profile-dropdown" aria-labelledby="dropdownMenuButton2">
+                  <div class="dropdown-body">
+                    <%= link_to 'My Profile', user_profile_path, class: 'dropdown-item' %>
+                    <%= link_to 'Account settings', account_settings_path, class: 'dropdown-item' %>
+                    <%= link_to 'Security', security_settings_path, class: 'dropdown-item' %>
+                    <%= link_to 'Notification Settings', notifications_settings_path, class: 'dropdown-item' %>
+                    <%= link_to 'Privacy settings', privacy_settings_path, class: 'dropdown-item' %>
+                  </div>
+                  <div class="dropdown-footer">
+                    <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item') %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

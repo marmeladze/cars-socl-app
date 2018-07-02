@@ -1,0 +1,14 @@
+<% comments.each do |comment| %>
+  <div class="comment-item" id="box_<%= comment.id %>">
+    <%= render partial: 'posts/comment', locals: { comment: comment, post: post, target_id: comment.id } %>
+    <% if comment.replies.count > 0 %>
+      <div class="replies-container">
+        <% comment.replies.each do |reply| %>
+          <div class="comment-item" id="box_<%= reply.id %>">
+            <%= render partial: 'posts/comment', locals: { comment: reply, post: post, target_id: comment.id } %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

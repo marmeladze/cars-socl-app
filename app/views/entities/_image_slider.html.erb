@@ -1,0 +1,18 @@
+<div class="content-block">
+  <div class="flexslider-container" data-behavior='flex_slider' data-carousel='#<%= parent %><%= type.capitalize %>Carousel' data-slider='#<%= parent %><%= type.capitalize %>Slider' data-margin='<%= photos.count %>'>
+    <div id="<%= parent %><%= type.capitalize %>Slider" class="flexslider images-slider">
+      <ul class="slides">
+        <% photos.each do |photo| %>
+          <li><%= image_tag(photo.file.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="<%= parent %><%= type.capitalize %>Carousel" class="flexslider images-carousel">
+      <ul class="slides">
+        <% photos.each do |photo| %>
+          <li><%= image_tag(photo.file.thumb.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
